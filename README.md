@@ -20,9 +20,9 @@
   - LinkedIn:https://www.linkedin.com/feed/
 
   - Developer 2: Daniel Devarajan
-  - Portfolio
-  - Github
-  - LinkedIn
+  - Portfolio: https://shielded-hollows-69469.herokuapp.com/
+  - Github: https://github.com/DAnMaN15726
+  - LinkedIn: https://www.linkedin.com/in/danieldev15726/
 
 
 
