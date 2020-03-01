@@ -6,6 +6,7 @@
 ## Project Summary
 
 > Food feed is taking the world of culinary arts to the next level. With this app we want to give aspiring chefs the opportunity to share their recipes and showcase their talents through a livestreaming platform. This app will give Chefs of all levels the opportunity to display their product and sell their food to consumers within a certain radius locally. Users that want to use Food Feed to sell their products will fill out a form in which we will collect the information and provide them with a link that will allow them to  complete and obtain their FHL. 
+
 ## Developers
 
 - Developer 1: Adam Verma
