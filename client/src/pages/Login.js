@@ -1,8 +1,7 @@
+
 import React  from "react";
 import Navbar from "../components/NavBar-Start/index"
 import Jumbotron from "../components"
-
-
 const Login = () => {
 
     return (
@@ -30,14 +29,6 @@ const Login = () => {
 
 
 }
-
-
-
-
-
-
-
-
 
 
 export default Login
