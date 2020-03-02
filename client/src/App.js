@@ -6,11 +6,12 @@ import "./App.css";
 import Start from "./pages/Start";
 import Login from "./pages/Login"
 import SignUp from "./pages/SignUp"
-import NavBar from "./components/NavBar/index"
+import NavBarStart from "./components/NavBar-Start/index"
+import Home from "./pages/Home"
 
 const App = () => (
 <React.Fragment>
-<NavBar></NavBar>
+
 
   <Router>
     <div className = "container">
@@ -18,6 +19,7 @@ const App = () => (
       <Route exact path = "/" component = {Start} />
       <Route exact path = "/Login" component = {Login} />
       <Route exact path = "/SignUp" component = {SignUp} />
+      <Route exact path = "/Home" component = {Home} />
     
     </div>
 
