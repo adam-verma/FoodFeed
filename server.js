@@ -1,9 +1,28 @@
 const express = require("express");
-
+const path = require("path");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
+const socketio = require("socket.io");
+const http = require("http");
+const server = http.createServer(app);
+const io = socketio(server);
+
 const PORT = process.env.PORT || 3001;
+
+
+io.on("connection", (socket) => {
+
+  console.log("CONNECTION ESTABLISHED!");
+
+
+  socket.on("disconnect", () => {
+    console.log("USER DISCONNECTED")
+  })
+})
+
+
+
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -17,6 +36,10 @@ app.use(routes);
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/foodfeed");
+
+
+app.get('/api/hello', (req, res) => res.send('Hello World!'))
+app.use('*', express.static(path.join(__dirname, "client", "build")));
 
 // Start the API server
 app.listen(PORT, function() {

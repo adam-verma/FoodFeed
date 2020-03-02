@@ -1,0 +1,35 @@
+{
+  "name": "foodfeed",
+  "version": "1.0.0",
+  "description": "> [Live Site]",
+  "main": "server.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adam-verma/FoodFeed.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adam-verma/FoodFeed/issues"
+  },
+  "homepage": "https://github.com/adam-verma/FoodFeed#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "express": "^4.17.1",
+    "express-mongoose": "^0.1.0",
+    "mongoose": "^5.9.2",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "^3.4.0",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "concurrently": "^5.1.0",
+    "nodemon": "^2.0.2"
+  }
+}
