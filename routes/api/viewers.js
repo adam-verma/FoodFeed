@@ -58,18 +58,18 @@ const { errors, isValid } = validateLoginInput(req.body);
 const email = req.body.email;
   const password = req.body.password;
 // Find user by email
-  Viewe.findOne({ email }).then(viewer => {
+  Viewer.findOne({ email }).then(viewer => {
     // Check if user exists
-    if (!user) {
+    if (!viewer) {
       return res.status(404).json({ emailnotfound: "Email not found" });
     }
 // Check password
-    bcrypt.compare(password, user.password).then(isMatch => {
+    bcrypt.compare(password, viewer.password).then(isMatch => {
       if (isMatch) {
         // User matched
         // Create JWT Payload
         const payload = {
-          id: vewer.id,
+          id: viewer.id,
           name: viewer.name
         };
 // Sign token
