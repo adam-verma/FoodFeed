@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import queryString from "query-string";
 import io from "socket.io-client";
-
+import "./style.css";
 
 let socket;
 
@@ -34,16 +34,20 @@ const ChatRoom = ({location}) => {
         
         <div className = "wrapper">
             
+            
+            <iframe id = "exampleVideo" src="https://www.youtube.com/embed/JK0K2eL7VqI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"  allowfullscreen></iframe>
 
-            <nav className="col-2 d-none d-md-block bg-dark sidebar float-right" style = {{backgroundColor: "#1E1E1E"}}>
-                <div className = "sidebar-sticky border-bottom-0 border-right-0">
+           
+            <div className="bg-dark grid" style = {{backgroundColor: "#1E1E1E"}}>
+                <div className = "sidebar">
                     <div className = "chat" style = {{backgroundColor: "#37373D"}}>
-                        muahahahfffffffffffffffff
+                        DDDDDDDDDDDDDDDdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+
                     </div>
                     
 
                 </div>
-            </nav>
+            </div>
 
 
         </div>
