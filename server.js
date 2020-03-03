@@ -2,13 +2,16 @@ const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
 const routes = require("./routes");
-const app = express();
-const socketio = require("socket.io");
-const http = require("http");
-const server = http.createServer(app);
-const io = socketio(server);
+const app = require('express')();
+
+const server = require("http").Server(app);
+const io = require("socket.io")(server);
 
 const PORT = process.env.PORT || 3001;
+
+
+
+
 
 
 io.on("connection", (socket) => {
@@ -20,7 +23,10 @@ io.on("connection", (socket) => {
     console.log("USER DISCONNECTED")
   })
 })
-
+// response.writeHead(200, {
+//   /// ...
+//   'Access-Control-Allow-Origin' : '*'
+// });
 
 
 

@@ -10,7 +10,9 @@ let socket;
 const ChatRoom = ({location}) => {
     const [name, setName] = useState("");
     const [room, setRoom] = useState("");
-    const ENDPOINT = "localhost:3000"
+    const ENDPOINT = ('localhost:3001');
+
+    
 
 
     useEffect(() => {
@@ -20,13 +22,34 @@ const ChatRoom = ({location}) => {
         socket = io(ENDPOINT);
 
         setName(name);
-        setRoom(room)
+        setRoom(room);
+
         console.log(socket);
-    });
+
+        socket.emit("join", { name, name,});
+    },[ENDPOINT, location.search]);
 
 
     return ( 
-        <h1>Chat</h1>
+        
+        <div className = "wrapper">
+            
+
+            <nav className="col-2 d-none d-md-block bg-dark sidebar float-right" style = {{backgroundColor: "#1E1E1E"}}>
+                <div className = "sidebar-sticky border-bottom-0 border-right-0">
+                    <div className = "chat" style = {{backgroundColor: "#37373D"}}>
+                        muahahahfffffffffffffffff
+                    </div>
+                    
+
+                </div>
+            </nav>
+
+
+        </div>
+            
+
+
     )
 }
 

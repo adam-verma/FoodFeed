@@ -7,7 +7,7 @@ import ChatRoom from "./components/Chat/chatroom.js"
 
 const App = () => (
 
-  <div className = "container">
+  <div className = "container col-12">
     <Router>
       <Route path = "/" exact component = {Sign} />
       <Route path = "/chat" component = {ChatRoom} />
