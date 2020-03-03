@@ -38,7 +38,7 @@ app.use(routes);
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/foodfeed");
 
 
-app.get('/api/hello', (req, res) => res.send('Hello World!'))
+
 app.use('*', express.static(path.join(__dirname, "client", "build")));
 
 // Start the API server
