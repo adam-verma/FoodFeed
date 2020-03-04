@@ -10,7 +10,7 @@ let socket;
 const ChatRoom = ({location}) => {
     const [name, setName] = useState("");
     const [room, setRoom] = useState("");
-    const ENDPOINT = ('localhost:3001');
+    
 
     
 
@@ -19,39 +19,34 @@ const ChatRoom = ({location}) => {
         const data = queryString.parse(location.search);
 
 
-        socket = io(ENDPOINT);
+        socket = io();
 
         setName(name);
         setRoom(room);
 
-        console.log(socket);
+        
 
-        socket.emit("join", { name, name,});
-    },[ENDPOINT, location.search]);
+        socket.emit("join", { name, name});
+    },[]);
 
 
     return ( 
-        
-        <div className = "wrapper">
-            
-            
-            <iframe id = "exampleVideo" src="https://www.youtube.com/embed/JK0K2eL7VqI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"  allowfullscreen></iframe>
+        <React.Fragment>
+            <div className = "outer">
+                {/* <div className = "wrapper"> */}
+                    
+                    
+                    <iframe id = "exampleVideo" src="https://www.youtube.com/embed/JK0K2eL7VqI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"  allowfullscreen></iframe>
 
-           
-            <div className="bg-dark grid" style = {{backgroundColor: "#1E1E1E"}}>
-                <div className = "sidebar">
-                    <div className = "chat" style = {{backgroundColor: "#37373D"}}>
-                        DDDDDDDDDDDDDDDdddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+                <div className="bg-dark sidebar" style = {{backgroundColor: "#1E1E1E"}}>
+                    <div className = "chat">
+                        <div>ChatL;KJASDLF;KKJAS;LKDFJ;ASLDKFJAS;LDKFJ</div>
+                            
 
                     </div>
-                    
-
                 </div>
             </div>
-
-
-        </div>
-            
+        </React.Fragment>   
 
 
     )
