@@ -18,6 +18,7 @@ body{
 
 
 .sidebar{
+    border-radius: 5px 0px 0px 5px;
     grid-area: side-bar;
 
 
@@ -36,13 +37,16 @@ body{
     
 
 }
-.chat-inner{
-    height: 90%;
-    min-height: 90%;
+.chatinner{
+    border-radius: 3px;
+    height: 85%;
+    min-height: 85%;
     
     min-width:90%;
     max-width: 90%;
     margin: 0 auto;
+    
+    
     
 }
 
@@ -61,4 +65,27 @@ h1{
     font-size: x-large;
     margin: 0 auto;
     padding: 2%;
+}
+
+.form-control{
+    
+    
+    margin: 0 auto;
+    background-color: #1E1E1E;
+    border-color: #1E1E1E;
+    min-width:90%;
+    max-width: 90%;
+    box-shadow: 1px 10px 44px 1px rgba(97, 235, 150, 0.507);
+    color: white;
+}
+.form-control:focus{
+    margin: 0 auto;
+    background-color: #1E1E1E;
+    border-color: #1E1E1E;
+    min-width:90%;
+    max-width: 90%;
+
+
+    transition-duration:  .3s;
+    box-shadow: 1px 1px 44px 1px rgba(97, 196, 235, 0.507);
 }
