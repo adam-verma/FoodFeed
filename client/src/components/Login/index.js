@@ -19,8 +19,11 @@ componentWillReceiveProps(nextProps) {
 // push user to dashboard when they login
     }
 if (nextProps.errors) {
+    
+
       this.setState({
         errors: nextProps.errors
+        
       });
     }
   }
@@ -37,43 +40,29 @@ this.props.loginUser(userData); // since we handle the redirect within our compo
   };
 render() {
     const { errors } = this.state;
+    console.log(errors)
 return (
-      <div className="container">
-        <div style={{ marginTop: "4rem" }} className="row">
-          <div className="col s8 offset-s2">
-            <Link to="/" className="btn-flat waves-effect">
-              <i className="material-icons left">keyboard_backspace</i> Back to
-              home
-            </Link>
-            <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-              <h4>
-                <b>Login</b> below
-              </h4>
-              <p className="grey-text text-darken-1">
-                Don't have an account? <Link to="/register">Register</Link>
-              </p>
-            </div>
-            <form noValidate onSubmit={this.onSubmit}>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.email}
-                  error={errors.email}
-                  id="email"
-                  type="email"
-                  className={classnames("", {
-                    invalid: errors.email || errors.emailnotfound
-                  })}
-                />
-                <label htmlFor="email">Email</label>
-                <span className="red-text">
-                  {errors.email}
-                  {errors.emailnotfound}
-                </span>
-              </div>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
+    <React.Fragment>
+<form noValidate onSubmit={this.onSubmit}>
+<div className="form-group">
+     <span>{errors.email} {errors.emailnotfound}</span>
+  <label for="exampleInputEmail1">Email address</label>
+  <input
+        onChange={this.onChange}
+        value={this.state.email}
+        error={errors.email}
+        id="email"
+        type="email"
+        className={classnames("", {
+            invalid: errors.email || errors.emailnotfound
+         })} 
+  />
+  
+  <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
+</div>
+<div className="form-group">
+  <label for="exampleInputPassword1">Password</label>
+  <input  onChange={this.onChange}
                   value={this.state.password}
                   error={errors.password}
                   id="password"
@@ -81,32 +70,18 @@ return (
                   className={classnames("", {
                     invalid: errors.password || errors.passwordincorrect
                   })}
-                />
-                <label htmlFor="password">Password</label>
-                <span className="red-text">
-                  {errors.password}
-                  {errors.passwordincorrect}
-                </span>
-              </div>
-              <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                <button
-                  style={{
-                    width: "150px",
-                    borderRadius: "3px",
-                    letterSpacing: "1.5px",
-                    marginTop: "1rem"
-                  }}
-                  type="submit"
-                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-                >
-                  Login
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    );
+     />
+     <p> {errors.password}
+         {errors.passwordincorrect}</p>
+</div>
+<div className="form-group form-check">
+  <input type="checkbox" className="form-check-input" id="exampleCheck1" />
+  <label className="form-check-label" for="exampleCheck1">Check me out</label>
+</div>
+<button type="submit" className="btn btn-primary">Submit</button>
+</form>
+</React.Fragment>
+    )
   }
 }
 Login.propTypes = {

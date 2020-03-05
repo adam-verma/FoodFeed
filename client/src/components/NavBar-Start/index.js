@@ -12,9 +12,18 @@ function Navbar(props) {
     </button>
   
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-      
-    <a href="/Login"><button className="btn btn-outline-success my-2 my-sm-0 LoginBtn">Login</button></a>
-    <a href="/SignUp"><button className="btn btn-outline-success my-2 my-sm-0 SignUpBtn">SignUp</button></a>
+      <ul className ="navbar-nav ml-auto">
+          <li className="nav-item active">
+          <a  className="nav-link" href="/Login">Login</a>
+          </li>
+
+          <li className="nav-item ">
+          <a  className="nav-link" href="/Signup">SignUp</a>
+          </li>
+          
+
+      </ul>
+    
      
     </div>
   </nav>
