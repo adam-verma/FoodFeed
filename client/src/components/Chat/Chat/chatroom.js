@@ -15,19 +15,19 @@ const ChatRoom = ({location}) => {
     
 
 
-    useEffect(() => {
-        const data = queryString.parse(location.search);
+    // useEffect(() => {
+    //     const data = queryString.parse(location.search);
 
 
-        socket = io();
+    //     socket = io();
 
-        setName(name);
-        setRoom(room);
+    //     setName(name);
+    //     setRoom(room);
 
         
 
-        socket.emit("join", { name, name});
-    },[]);
+    //     socket.emit("join", { name, name});
+    // },[]);
 
 
     return ( 
@@ -36,12 +36,11 @@ const ChatRoom = ({location}) => {
                 {/* <div className = "wrapper"> */}
                     
                     
-                    <iframe id = "exampleVideo" src="https://www.youtube.com/embed/JK0K2eL7VqI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"  allowfullscreen></iframe>
 
                 <div className="bg-dark sidebar" style = {{backgroundColor: "#1E1E1E"}}>
                     <div className = "chat">
-                        <div>ChatL;KJASDLF;KKJAS;LKDFJ;ASLDKFJAS;LDKFJ</div>
-                            
+                        <div className = "Title" align="center"><h1>Chat</h1></div>
+                        <div className="chat-inner" style = {{backgroundColor: "#D7983C"}}></div>
 
                     </div>
                 </div>
