@@ -1,7 +1,7 @@
 {
   "name": "foodfeed",
   "version": "1.0.0",
-  "description": "> [Live Site]",
+  "description": "A MERN app that connects viewers to livestream cooking channels",
   "main": "server.js",
   "scripts": {
     "start": "react-scripts start",

@@ -1,17 +1,15 @@
-const express = require("express");
+// Require dependencies
+const express= require("express"),
+bodyParse = require("body-parser"),
+mongoose = require("mongoose"),
+routes = require("./routes"),
+app = express(),
+PORT = process.env.PORT || 3001,
+session = require("express-session"),
+FileStore = require("session-file-store")(session);
 const path = require("path");
-const mongoose = require("mongoose");
-const routes = require("./routes");
-const app = require('express')();
-
 const server = require("https").createServer(app);
 const io = require("socket.io").listen(server);
-
-const PORT = process.env.PORT || 3001;
-
-
-
-
 
 
 io.on("connection", (socket) => {
@@ -40,8 +38,9 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 app.use(routes);
 
-// Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/foodfeed");
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/foodfeed";
+// Connect to Mongo DB
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true }, err => { if(err) { console.log(err); }});
 
 
 
