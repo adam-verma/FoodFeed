@@ -15,7 +15,7 @@ class Login extends Component {
   }
 componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
-        window.location.href = "/dashboard"
+        window.location.href = "/chat"
 // push user to dashboard when they login
     }
 if (nextProps.errors) {
