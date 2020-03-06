@@ -1,7 +1,8 @@
 {
   "name": "foodfeed",
   "version": "1.0.0",
-  "description": "",
+
+  "description": "A MERN app that connects viewers to livestream cooking channels",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

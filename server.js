@@ -1,21 +1,18 @@
-const express = require("express");
 
+// Require dependencies
+const express= require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
-// const PORT = process.env.PORT || 5000;
-const passport = require("passport");
-const viewers = require("./routes/api/viewers");
+const session = require("express-session");
+const FileStore = require("session-file-store")(session);
+const path = require("path");
 const server = require("https").createServer(app);
 const io = require("socket.io").listen(server);
-
-// const PORT = process.env.PORT || 3001;
-
-
-
-
+const viewers = require("./routes/api/viewers");
+const passport = require("passport");
 
 
 io.on("connection", (socket) => {
@@ -42,19 +39,19 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 // app.use(routes);
 
-// Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/foodfeed");
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/foodfeed")
-.then(() => console.log("MongoDB successfully connected"))
-.catch(err => console.log(err));
-
 // Bodyparser middleware
 app.use(
   bodyParser.urlencoded({
     extended: false
   })
 );
+
 app.use(bodyParser.json());
+
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/foodfeed";
+// Connect to Mongo DB
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true }, err => { if(err) { console.log(err); }});
+
 
 
 // Passport middleware
