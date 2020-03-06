@@ -1,8 +1,7 @@
 import React     from "react";
-import Navbar from "../components/NavBar-Start/index"
-import Jumbotron from "../components"
+import Carousel from "../components/Carousel/index"
 import NavBarStart from "../components/NavBar-Start/index"
-
+import Jumbotron from "../components/Jumbotron/index"
 const Start = () =>{
 
 
@@ -10,7 +9,8 @@ const Start = () =>{
 return (
     <React.Fragment>
         <NavBarStart></NavBarStart>
-
+        <Carousel></Carousel>
+        <Jumbotron></Jumbotron>
     </React.Fragment>
 
 )
