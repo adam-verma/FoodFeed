@@ -1,5 +1,7 @@
+
 // Require dependencies
 const express= require("express");
+const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
@@ -11,6 +13,8 @@ const server = require("https").createServer(app);
 const io = require("socket.io").listen(server);
 const mediaServer = require("node-media-server");
 
+const viewers = require("./routes/api/viewers");
+const passport = require("passport");
 
 
 io.on("connection", (socket) => {
@@ -28,16 +32,23 @@ io.on("connection", (socket) => {
 // });
 
 
-
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-// Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 // Add routes, both API and view
 app.use(routes);
+// app.use(routes);
+
+// Bodyparser middleware
+app.use(
+  bodyParser.urlencoded({
+    extended: false
+  })
+);
+
+app.use(bodyParser.json());
 
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/foodfeed";
 // Connect to Mongo DB
@@ -45,7 +56,13 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true 
 
 
 
-app.use('*', express.static(path.join(__dirname, "client", "build")));
+// Passport middleware
+app.use(passport.initialize());
+// Passport config
+require("./config/passport")(passport);
+
+// Routes
+app.use("/api/viewers", viewers);
 
 // Start the API server
 app.listen(PORT, function() {
