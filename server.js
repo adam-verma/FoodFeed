@@ -1,15 +1,16 @@
 // Require dependencies
-const express= require("express"),
-bodyParse = require("body-parser"),
-mongoose = require("mongoose"),
-routes = require("./routes"),
-app = express(),
-PORT = process.env.PORT || 3001,
-session = require("express-session"),
-FileStore = require("session-file-store")(session);
+const express= require("express");
+const mongoose = require("mongoose");
+const routes = require("./routes");
+const app = express();
+const PORT = process.env.PORT || 3001;
+const session = require("express-session");
+const FileStore = require("session-file-store")(session);
 const path = require("path");
 const server = require("https").createServer(app);
 const io = require("socket.io").listen(server);
+const mediaServer = require("node-media-server");
+
 
 
 io.on("connection", (socket) => {
