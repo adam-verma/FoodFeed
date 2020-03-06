@@ -1,9 +1,34 @@
 const express = require("express");
-
+const path = require("path");
 const mongoose = require("mongoose");
 const routes = require("./routes");
-const app = express();
+const app = require('express')();
+
+const server = require("https").createServer(app);
+const io = require("socket.io").listen(server);
+
 const PORT = process.env.PORT || 3001;
+
+
+
+
+
+
+io.on("connection", (socket) => {
+
+  console.log("CONNECTION ESTABLISHED!");
+
+
+  socket.on("disconnect", () => {
+    console.log("USER DISCONNECTED")
+  })
+})
+// response.writeHead(200, {
+//   /// ...
+//   'Access-Control-Allow-Origin' : '*'
+// });
+
+
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -17,6 +42,10 @@ app.use(routes);
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/foodfeed");
+
+
+
+app.use('*', express.static(path.join(__dirname, "client", "build")));
 
 // Start the API server
 app.listen(PORT, function() {
