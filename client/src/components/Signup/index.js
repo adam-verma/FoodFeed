@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
-// import SignUp from "../../pages/SignUp";
+import "./signup.css" 
 class Signup extends Component {
   constructor() {
     super();
@@ -67,6 +67,7 @@ return (
                   })}
                 />
                 <label htmlFor="name">Name</label>
+                <br></br>
                 <span className="red-text">{errors.name}</span>
               </div>
               <div className="input-field col s12">
@@ -81,6 +82,7 @@ return (
                   })}
                 />
                 <label htmlFor="email">Email</label>
+                <br></br>
                 <span className="red-text">{errors.email}</span>
               </div>
               <div className="input-field col s12">
@@ -95,6 +97,7 @@ return (
                   })}
                 />
                 <label htmlFor="password">Password</label>
+                <br></br>
                 <span className="red-text">{errors.password}</span>
               </div>
               <div className="input-field col s12">
@@ -109,6 +112,7 @@ return (
                   })}
                 />
                 <label htmlFor="password2">Confirm Password</label>
+                <br></br>
                 <span className="red-text">{errors.password2}</span>
               </div>
               <div className="col s12" style={{ paddingLeft: "11.250px" }}>

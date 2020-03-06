@@ -17,6 +17,9 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import NavBarStart from "./components/NavBar-Start/index"
 // Check for token to keep user logged in
+import Sign from "./components/Chat/index.js";
+import ChatRoom from "./components/Chat/Chat/chatroom.js"
+
 if (localStorage.jwtToken) {
   // Set auth token header auth
   const token = localStorage.jwtToken;
@@ -52,6 +55,7 @@ return (
           {/* <Route path='/Login'component={} */}
           <Route exact path = "/SignUp" component = {SignUp} />
           <Route exact path ='/Login'  component={Login} /> 
+          <Route path = "/chat" component = {ChatRoom} />
           <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
            </Switch>

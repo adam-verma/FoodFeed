@@ -1,4 +1,5 @@
 const express = require("express");
+<<<<<<< HEAD
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const routes = require("./routes");
@@ -8,6 +9,38 @@ const passport = require("passport");
 const viewers = require("./routes/api/viewers");
 
 
+
+
+=======
+const path = require("path");
+const mongoose = require("mongoose");
+const routes = require("./routes");
+const app = require('express')();
+
+const server = require("https").createServer(app);
+const io = require("socket.io").listen(server);
+
+const PORT = process.env.PORT || 3001;
+>>>>>>> 7e9618a9efa1c85f6aebc1ac2c4a43ed8b97ce66
+
+
+
+
+
+
+io.on("connection", (socket) => {
+
+  console.log("CONNECTION ESTABLISHED!");
+
+
+  socket.on("disconnect", () => {
+    console.log("USER DISCONNECTED")
+  })
+})
+// response.writeHead(200, {
+//   /// ...
+//   'Access-Control-Allow-Origin' : '*'
+// });
 
 
 
@@ -42,6 +75,10 @@ require("./config/passport")(passport);
 
 // Routes
 app.use("/api/viewers", viewers);
+
+
+
+app.use('*', express.static(path.join(__dirname, "client", "build")));
 
 // Start the API server
 app.listen(PORT, function() {
