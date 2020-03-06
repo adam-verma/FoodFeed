@@ -8,7 +8,7 @@ const Start = () =>{
 
 return (
     <React.Fragment>
-        <NavBarStart></NavBarStart>
+        
         <Carousel></Carousel>
         <Jumbotron></Jumbotron>
     </React.Fragment>

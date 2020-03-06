@@ -40,7 +40,7 @@ this.props.loginUser(userData); // since we handle the redirect within our compo
   };
 render() {
     const { errors } = this.state;
-    console.log(errors)
+    console.log(errors.data)
 return (
     <React.Fragment>
 <form noValidate onSubmit={this.onSubmit}>
@@ -73,6 +73,7 @@ return (
      />
      <p> {errors.password}
          {errors.passwordincorrect}</p>
+
 </div>
 <div className="form-group form-check">
   <input type="checkbox" className="form-check-input" id="exampleCheck1" />

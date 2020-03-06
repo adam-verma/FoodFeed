@@ -16,7 +16,7 @@ function Carousel(props) {
         <img src="https://i.ytimg.com/vi/avB1qUOLHLg/maxresdefault.jpg" className="d-block w-100" alt="..."/>
         <div className="carousel-caption d-none d-md-block">
           <h5><button><a  className="nav-link" href="/Login">Login</a></button></h5>
-          <h5><button><a  className="nav-link" href="/Sign Up">SignUp</a></button></h5>
+          <h5><button><a  className="nav-link" href="/SignUp">SignUp</a></button></h5>
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
         </div>
       </div>

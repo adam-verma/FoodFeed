@@ -15,7 +15,7 @@ import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
 import PrivateRoute from "./components/private-route/PrivateRoute";
-
+import NavBarStart from "./components/NavBar-Start/index"
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
   // Set auth token header auth
@@ -43,7 +43,7 @@ console.log(props)
 return (
 
 <React.Fragment>
-
+<NavBarStart></NavBarStart>
     <Provider store={store}>
       <Router>
         <div className = "container">
