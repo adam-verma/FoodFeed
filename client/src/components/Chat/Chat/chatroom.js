@@ -10,24 +10,28 @@ let socket;
 const ChatRoom = ({location}) => {
     const [name, setName] = useState("");
     const [room, setRoom] = useState("");
+    const ENDPOINT = "http://127.0.0.1:3002";
     
 
     
+    
 
 
-    // useEffect(() => {
-    //     const data = queryString.parse(location.search);
-
-
-    //     socket = io();
-
-    //     setName(name);
-    //     setRoom(room);
+    useEffect(() => {
+        socket = io(ENDPOINT);
+        const data = queryString.parse(location.search);
+        socket.on("chat message", data => {
+            console.log(data);
+        });
 
         
 
-    //     socket.emit("join", { name, name});
-    // },[]);
+        // setName(name);
+        // setRoom(room);
+        
+
+        socket.emit("join", { name, name});
+    },[]);
 
 
     return ( 
@@ -47,7 +51,7 @@ const ChatRoom = ({location}) => {
                             
 
                         </div>
-                        <input class="form-control form-control-sm" type="text" placeholder="Say Something!"></input>
+                        <input className="form-control form-control-sm" type="text" placeholder="Say Something!"></input>
                         
                     </div>
 

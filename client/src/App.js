@@ -55,6 +55,7 @@ return (
         {/* CONTACT DAN BEFORE CHANGING  REACT.FRAGMENT */}
         <React.Fragment>
           
+          
           <Route exact path = "/" component = {Start} />
           {/* <Route path='/Login'component={} */}
           <Route exact path = "/SignUp" component = {SignUp} />
