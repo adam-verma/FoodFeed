@@ -2,23 +2,23 @@ import React, { useState, useEffect, useReducer } from "react";
 import queryString from "query-string";
 import io from "socket.io-client";
 import "./style.css";
+let ENDPOINT;
 
-let socket;
-
+console.log(process.env.NODE_ENV);
+if (process.env.NODE_ENV !== 'production') {
+    ENDPOINT = "http://localhost:3002";
+};
 
 
 const ChatRoom = ({location}) => {
     const [name, setName] = useState("");
     const [room, setRoom] = useState("");
-    const ENDPOINT = "http://127.0.0.1:3002";
-    
-
-    
     
 
 
     useEffect(() => {
-        socket = io(ENDPOINT);
+        
+        const socket = io(ENDPOINT);
         const data = queryString.parse(location.search);
         socket.on("chat message", data => {
             console.log(data);
