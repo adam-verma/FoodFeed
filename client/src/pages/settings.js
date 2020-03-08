@@ -13,18 +13,18 @@ const Settings = () => {
         <React.Fragment>
             <aside>
                 <h1>Settings</h1>
-                <ul style="list-style: none;">
-                    <li className = "nav-item" >
-                        <a className = "nav-link">Notifications</a>
+                <ul>
+                    <li tabindex="1" className = "nav-item" >
+                        <a className = "nav-link" type = "button" >Notifications</a>
                     </li>
-                    <li className = "nav-item" >
-                        <a className = "nav-link">Geolocation</a>
+                    <li  tabindex="1"className = "nav-item" >
+                        <a className = "nav-link" type = "button">Geolocation</a>
                     </li>
-                    <li className = "nav-item" >
-                        <a className = "nav-link">Security & Privacy</a>
+                    <li  tabindex="1"className = "nav-item" >
+                        <a className = "nav-link" type = "button">Security & Privacy</a>
                     </li>
-                    <li className = "nav-item" >
-                        <a className = "nav-link">Account</a>
+                    <li  tabindex="1" className = "nav-item" >
+                        <a className = "nav-link" type = "button">Account</a>
                     </li>
                     
                 </ul>

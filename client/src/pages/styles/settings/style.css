@@ -15,6 +15,28 @@ body, html, #root, .App{
     "sidebar main   main";
 }
 
+li{
+    list-style: none;
+}
+li:hover{
+    transition-duration:.1s;
+    background-color: rgb(172, 172, 172);
+}
+li:focus{
+    transition-duration: .3s;
+    background-color: white;
+    color:black;
+}
+li:active{
+    background-color: rgb(49, 49, 49);
+    box-shadow: inset 1px 1px 1px 1px black;
+    border-color: white;
+}
+
+
+
+
+
 aside{
     grid-area: sidebar;
     background-color: #1E1E1E;
