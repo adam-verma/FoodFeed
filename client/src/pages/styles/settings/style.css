@@ -1,6 +1,6 @@
 body, html, #root, .App{
     min-height: 100vh;
-    color: white;
+    color: rgb(143, 0, 0);
     background-color: rgb(136, 136, 136);
 }
 

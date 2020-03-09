@@ -15,7 +15,7 @@ import MongooseData from "mongoose";
 
 
 const Settings = (props) => {
-    const [component, setComponent] = useState("Notifications");
+    const [component, setComponent] = useState("Securiprivacy");
     const [results, setResults] = useState([]);
 
     const exampleChefs = ["Murphy","21 Savage", "23 Savage", "Joe Mama"];
@@ -35,16 +35,13 @@ const Settings = (props) => {
                 name = {" All "}
             />
             {exampleChefs.map((result, i) =>(
-                
+    
                 <Toggle
                     name = {result}
-                />
-                
+                /> 
             ))}
             <br></br>
             <br></br>
-
-
             <Notifications
                 description1 = {"Notify Via SMS Text Message"}
             />
@@ -58,7 +55,6 @@ const Settings = (props) => {
                     name = {result}
                 />
             ))}
-        
         </>
         
         
