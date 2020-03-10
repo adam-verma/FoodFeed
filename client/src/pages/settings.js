@@ -9,16 +9,29 @@ import Geolocation from "../components/SettingsGroup/geolocation.js";
 import Account from "../components/SettingsGroup/account.js";
 import Toggle from "../components/SettingsGroup/toggle.js";
 
+import GEOAPI from "../utils/geolocation/API.js";
+
 
 // TODO:This is not a real import. This helps me follow a train of thought. REMOVE AFTER DONE.
 import MongooseData from "mongoose";
 
 
 const Settings = (props) => {
+    
     const [component, setComponent] = useState("Geolocation");
-    const [results, setResults] = useState([]);
+    const [results, setResults] = useState(['No Location on file!']);
 
     const exampleChefs = ["Murphy","21 Savage", "23 Savage", "Joe Mama"];
+    let local;
+
+    
+
+    useEffect(() => {
+        
+        console.log(results);
+
+    },
+    [results])
 
 
 
@@ -60,7 +73,17 @@ const Settings = (props) => {
         
         ,
         Securiprivacy: <Securiprivacy/>,
-        Geolocation: <Geolocation/>,
+        Geolocation: <Geolocation
+            clicked = {() => setResults(GEOAPI.Locate()
+            )
+                
+            }
+
+
+            location = {results}
+            
+        
+        />,
         Account: <Account/>
 
 }
