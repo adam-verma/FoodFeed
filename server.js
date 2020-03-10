@@ -18,11 +18,11 @@ const passport = require("passport");
 
 io.on("connection", (socket) => {
 
-  console.log("CONNECTION ESTABLISHED!");
+  console.log("A USER CONNECTED!");
   socket.emit("chat message", "HEYO BACK");
 
   socket.on("disconnect", () => {
-    console.log("USER DISCONNECTED")
+    console.log("A USER DISCONNECTED")
   })
 })
 
