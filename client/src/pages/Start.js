@@ -9,8 +9,8 @@ const Start = () =>{
 return (
     <React.Fragment>
         
-        <Carousel></Carousel>
-        <Jumbotron></Jumbotron>
+        
+        
     </React.Fragment>
 
 )

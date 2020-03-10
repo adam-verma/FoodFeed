@@ -5,18 +5,51 @@ const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
-// const PORT = process.env.PORT || 5000;
-const passport = require("passport");
-const viewers = require("./routes/api/viewers");
+
+const viewers = require("./routes/api/Viewers");
 const server = require("https").createServer(app);
 const io = require("socket.io").listen(server);
+const  Session = require('express-session');
+const  middleware = require('connect-ensure-login');
+const  FileStore = require('session-file-store')(Session);
+const  config = require('./config/default');
+const   flash = require('connect-flash');
 
-// const PORT = process.env.PORT || 3001;
+
+const passport = require('./config/passport');
+ 
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Connect to the Mongo DB
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/foodfeed");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/foodfeed")
+.then(() => console.log("MongoDB successfully connected"))
+.catch(err => console.log(err));
 
 
+app.set('view engine', 'ejs');
+// app.set('views', path.join(__dirname, './views'));
+app.use(express.static('public'));
+app.use(flash());
+app.use(require('cookie-parser')());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json({extended: true}));
 
 
+app.use(Session({
+  store: new FileStore({
+      path : './server/sessions'
+  }),
+  secret: config.server.secret,
+  maxAge : Date().now + (60 * 1000 * 30)
+}));
 
+app.get('*', middleware.ensureLoggedIn(), (req, res) => {
+  res.render('index');
+});
+
+//socket.io connection
 
 io.on("connection", (socket) => {
 
@@ -42,28 +75,24 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 // app.use(routes);
 
-// Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/foodfeed");
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/foodfeed")
-.then(() => console.log("MongoDB successfully connected"))
-.catch(err => console.log(err));
-
-// Bodyparser middleware
-app.use(
-  bodyParser.urlencoded({
-    extended: false
-  })
-);
-app.use(bodyParser.json());
-
 
 // Passport middleware
 app.use(passport.initialize());
+
+
+
+
 // Passport config
-require("./config/passport")(passport);
+// require("./config/passport")(passport);
+
+
+
 
 // Routes
-app.use("/api/viewers", viewers);
+// app.use("/api/viewers", viewers);
+app.use('/login', require('./routes/login'));
+app.use('/register', require('./routes/register'));
+
 
 // Start the API server
 app.listen(PORT, function() {

@@ -1,7 +1,7 @@
 
 
 import React, { useState }  from "react";
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Start from "./pages/Start";
 import Login from "./pages/Login"
@@ -19,6 +19,7 @@ import NavBarStart from "./components/NavBar-Start/index"
 // Check for token to keep user logged in
 import Sign from "./components/Chat/index.js";
 import ChatRoom from "./components/Chat/Chat/chatroom.js"
+import Jumbotron from "./components/Jumbotron";
 
 if (localStorage.jwtToken) {
   // Set auth token header auth
@@ -46,23 +47,27 @@ console.log(props)
 return (
 
 <React.Fragment>
-<NavBarStart></NavBarStart>
+<NavBarStart/>
+
     <Provider store={store}>
       <Router>
-        <div className = "container">
+
+      
+      <Route exact path = "/" component = {Start} />
+
+       
           
-          <Route exact path = "/" component = {Start} />
           {/* <Route path='/Login'component={} */}
           <Route exact path = "/SignUp" component = {SignUp} />
           <Route exact path ='/Login'  component={Login} /> 
-          <Route path = "/chat" component = {ChatRoom} />
-          <Switch>
-              <PrivateRoute exact path="/dashboard" component={Dashboard} />
-           </Switch>
+          <Route exact path = "/chat" component = {ChatRoom} />
+          <Route  exact path="/dashboard" component={Dashboard} />
+              
+           
                                                                    
           
         
-        </div>
+        
 
 
       </Router>

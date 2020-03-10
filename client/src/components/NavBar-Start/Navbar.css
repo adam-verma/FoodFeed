@@ -1,0 +1,15 @@
+.Logo{
+width: 200px;
+height: 150px;
+}
+
+a{
+text-align: center;
+
+}
+
+.navbar-expand-lg{
+background: linear-gradient( to right, rgb(14,195,89),rgb(26,193,192));
+width: 100%;
+
+}
