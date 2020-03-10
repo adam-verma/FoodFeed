@@ -1,16 +1,21 @@
 import React from "react";
 
 
-const Account = (props) =>{
+const Account = (props) =>(
 
 
+<>
+    <div className = "card security-security">
+        <label>Delete Account</label>
+        <div class="card-body">
+            <p>WARNING: Once do you this, you cannot get your information back.</p>
+            <button className = "security-btn" type = "button">Delete My Account</button>
+        </div>
+    </div>
+</>
 
 
-
-
-
-
-}
+)
 
 
 

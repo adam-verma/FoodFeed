@@ -15,7 +15,7 @@ import MongooseData from "mongoose";
 
 
 const Settings = (props) => {
-    const [component, setComponent] = useState("Securiprivacy");
+    const [component, setComponent] = useState("Geolocation");
     const [results, setResults] = useState([]);
 
     const exampleChefs = ["Murphy","21 Savage", "23 Savage", "Joe Mama"];
