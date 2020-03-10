@@ -21,6 +21,7 @@ const Settings = (props) => {
     const [component, setComponent] = useState("Geolocation");
     const [results, setResults] = useState(['No Location on file!']);
 
+    // TODO:REPLACE WITH MONGOOSE SEEDS
     const exampleChefs = ["Murphy","21 Savage", "23 Savage", "Joe Mama"];
     let local;
 
@@ -102,16 +103,16 @@ const Settings = (props) => {
             <aside>
                 <h1>Settings</h1>
                 <ul>
-                    <li tabIndex="1" className = "nav-item active">
+                    <li tabIndex="1" className = "nav-item active border-bottom">
                         <a className = "nav-link" type = "button" onClick={() => setComponent("Notifications")}>Notifications</a>
                     </li>
-                    <li  tabIndex="1"className = "nav-item" >
+                    <li  tabIndex="1"className = "nav-item border-bottom" >
                         <a className = "nav-link" type = "button" onClick = {() => setComponent("Geolocation")}>Geolocation</a>
                     </li>
-                    <li  tabIndex="1"className = "nav-item" >
+                    <li  tabIndex="1"className = "nav-item border-bottom" >
                         <a className = "nav-link" type = "button" onClick = {() => setComponent("Securiprivacy")}>Security & Privacy</a>
                     </li>
-                    <li  tabIndex="1" className = "nav-item" >
+                    <li  tabIndex="1" className = "nav-item border-bottom" >
                         <a className = "nav-link" type = "button" onClick = {() => setComponent("Account")}>Account</a>
                     </li>
                     

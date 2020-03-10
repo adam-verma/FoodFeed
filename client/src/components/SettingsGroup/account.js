@@ -4,7 +4,8 @@ import React from "react";
 const Account = (props) =>(
 
 
-<>
+<div>
+    <h1>Manage Account</h1>
     <div className = "card security-security">
         <label>Delete Account</label>
         <div class="card-body">
@@ -12,7 +13,7 @@ const Account = (props) =>(
             <button className = "security-btn" type = "button">Delete My Account</button>
         </div>
     </div>
-</>
+</div>
 
 
 )

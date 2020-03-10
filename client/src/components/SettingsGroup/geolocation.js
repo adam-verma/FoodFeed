@@ -2,7 +2,7 @@ import React from "react";
 import API from "../../utils/geolocation/API.js";
 
 const Geolocation = (props) =>(
-    <>
+    <div>
         <div className = "card security-security">
             <label>Location Information</label>
             <div className="card-body">
@@ -12,7 +12,7 @@ const Geolocation = (props) =>(
                 <p>Current Location: {props.location}</p>
             </div>
         </div>
-    </>
+    </div>
 
 
 
