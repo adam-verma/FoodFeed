@@ -3,6 +3,9 @@ body{
     background-color: palegreen;
 }
 
+.account{
+    font-size: 17px;
+}
 .wave{
     position: fixed;
     height: 100%;

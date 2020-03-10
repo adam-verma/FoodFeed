@@ -91,7 +91,7 @@ app.use(passport.initialize());
 // Routes
 // app.use("/api/viewers", viewers);
 app.use('/login', require('./routes/login'));
-app.use('/register', require('./routes/register'));
+app.use('/signup', require('./routes/signup'));
 
 
 // Start the API server

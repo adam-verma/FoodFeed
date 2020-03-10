@@ -39,6 +39,9 @@ function Login(props) {
                             <input type="password" name="password" className="form-control" placeholder="Password" required /> 
                         </div>
                     </div>
+                    <div className="account">
+                    Don't have an account? Sign Up Here <a href="/signup">here</a>.
+                </div>
                     <input type="submit" className="btn" value="Login" />
                     
                 
