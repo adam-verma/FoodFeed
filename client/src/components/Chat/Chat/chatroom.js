@@ -2,6 +2,8 @@ import React, { useState, useEffect, useReducer } from "react";
 import queryString from "query-string";
 import io from "socket.io-client";
 import "./style.css";
+import Message from "./inline.js"
+
 let ENDPOINT;
 
 console.log(process.env.NODE_ENV);
@@ -45,14 +47,17 @@ const ChatRoom = ({location}) => {
                     <div className = "chat rounded-left">
                         <div className = "Title" align="center"><h1>Chat</h1></div>
                         <div className="chatinner rounded-bottom border border-white" style = {{backgroundColor: "#FFAD33"}}>
+                            <Message
+                                username = {"CATMAN"}
+                                message = {"HEY"}
 
-                            <div className = "inline-message" data-user = "DAnMaN15726" >{"DAn: "}Hey Mahn, wa go on bloodclat?</div>
-                            <div className = "inline-message" data-user = "SHUTUPMang696969" >{"BeTcH: "}SHUT UP NERD!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</div>
+
+                            />
                             
 
                         </div>
                         <input className="form-control form-control-sm" type="text" placeholder="Say Something!"></input>
-                        
+                        <button type="button" class="btn btn-outline-dark" type = "submit" >Dark</button>
                     </div>
 
                 </div>
