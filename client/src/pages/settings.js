@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import to from 'await-to-js';
 import "./styles/settings/style.css";
 
 import Notifications from "../components/SettingsGroup/notifications.js";
@@ -27,14 +28,13 @@ const Settings = (props) => {
 
     
 
-    useEffect(() => {
-        
-        console.log(results);
+    const locationHandler = async () => {
+        const [dataError, data] = await to(GEOAPI.Locate());
+        if(dataError) return;
 
-    },
-    [results])
-
-
+        const location = data.data.results[4].formatted_address;
+        setResults(location);
+    };
 
     const componentMap = {
         Notifications:
@@ -51,6 +51,7 @@ const Settings = (props) => {
             {exampleChefs.map((result, i) =>(
     
                 <Toggle
+                    key = {i}
                     name = {result}
                 /> 
             ))}
@@ -75,10 +76,7 @@ const Settings = (props) => {
         ,
         Securiprivacy: <Securiprivacy/>,
         Geolocation: <Geolocation
-            clicked = {() => setResults(GEOAPI.Locate()
-            )
-                
-            }
+            clicked = {locationHandler}
 
 
             location = {results}
