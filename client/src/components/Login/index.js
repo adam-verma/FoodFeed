@@ -46,7 +46,7 @@ function Login(props) {
                     <div className="account">
                     Don't have an account? Sign Up Here <a href="/signup">here</a>.
                 </div>
-                    <input type="submit" className="btn" value="Login" />
+                    <input type="submit" className="btn" id="loginbtn" value="Login" />
                     
                 
                  </form>

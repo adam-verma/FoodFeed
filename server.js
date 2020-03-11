@@ -17,6 +17,9 @@ const   flash = require('connect-flash');
 
 
 const passport = require('./config/passport');
+
+const apiRoutes = require("./routes/api/recipes");
+
  
 app.use(passport.initialize());
 app.use(passport.session());
@@ -45,7 +48,7 @@ app.use(Session({
   maxAge : Date().now + (60 * 1000 * 30)
 }));
 
-app.get('*', middleware.ensureLoggedIn(), (req, res) => {
+app.get('/login', middleware.ensureLoggedIn(), (req, res) => {
   res.render('index');
 });
 
@@ -95,7 +98,7 @@ app.use('/signup', require('./routes/signup'));
 
 
 //Recipe route
-app.use('/recipe', require('./routes/api/recipes'))
+app.use('/api',apiRoutes )
 
 // Start the API server
 app.listen(PORT, function() {

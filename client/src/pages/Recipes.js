@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import API from '../utils/recipeApi'
-import Jumbotron from "../components/Jumbotron"
 import { Container, Row, Col } from "../components/Grid";
+import Button from "../components/Button/recipeBtn"
+import Input from "../components/Input/recipeInput"
+import { RecipeList, RecipeListItem } from "../components/List/RecipeList";
+
 const Recipes = () => {
     const [recipes, setRecipes] = useState([]);
     const [recipeSearch, setRecipeSearch ]= useState("");
@@ -32,15 +35,15 @@ const Recipes = () => {
     return (
       <div>
         
-        <Jumbotron />
+        
         
           <Row>
             <Col size="md-12">
-              <form>
+              <form action="/recipes" method="post">
                 <Container>
                   <Row>
                     <Col size="xs-9 sm-10">
-                      <Input
+                      <input
                         name="recipeSearch"
                         value={recipeSearch}
                         onChange={handleInputChange}
@@ -48,13 +51,13 @@ const Recipes = () => {
                       />
                     </Col>
                     <Col size="xs-3 sm-2">
-                      <Button
+                      <button
                         onClick={handleFormSubmit}
                         type="success"
                         className="input-lg"
                       >
                         Search
-                      </Button>
+                      </button>
                     </Col>
                   </Row>
                 </Container>
