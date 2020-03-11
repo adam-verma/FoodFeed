@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import API from '../utils/recipeApi'
 import Jumbotron from "../components/Jumbotron"
-
+import { Container, Row, Col } from "../components/Grid";
 const Recipes = () => {
     const [recipes, setRecipes] = useState([]);
     const [recipeSearch, setRecipeSearch ]= useState("");
