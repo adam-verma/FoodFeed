@@ -20,6 +20,7 @@ import NavBarStart from "./components/NavBar-Start/index"
 import Sign from "./components/Chat/index.js";
 import ChatRoom from "./components/Chat/Chat/chatroom.js"
 import Jumbotron from "./components/Jumbotron";
+import Recipes from "./pages/Recipes";
 
 if (localStorage.jwtToken) {
   // Set auth token header auth
@@ -61,7 +62,7 @@ return (
           <Route exact path = "/SignUp" component = {SignUp} />
           <Route exact path ='/Login'  component={Login} /> 
           <Route exact path = "/chat" component = {ChatRoom} />
-          <Route  exact path="/dashboard" component={Dashboard} />
+          <Route  exact path="/recipes" component={Recipes} />
               
            
                                                                    

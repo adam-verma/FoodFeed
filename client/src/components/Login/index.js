@@ -4,9 +4,12 @@ import Wave from  "../../Images/wave.png"
 import Burger from "../../Images/van.svg"
 import Profile from "../../Images/profile.svg"
 import Van from "../../Images/break.svg"
+
 // The ...props means, spread all of the passed props onto this element
 // That way we don't have to define them all individually
+
 function Login(props) {
+    console.log()
   return (
  <React.Fragment>
         <img className="wave" src = {Wave} />
@@ -30,6 +33,7 @@ function Login(props) {
                         
                             
                             <input type="email" name="email" className="form-control" placeholder="Enter Email" required />
+                             <small class="form-text text-danger"></small>
                         </div>
                 </div>
                      <div className="input-div two">

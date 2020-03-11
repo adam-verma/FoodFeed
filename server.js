@@ -88,11 +88,14 @@ app.use(passport.initialize());
 
 
 
-// Routes
+// Authentication Routes
 // app.use("/api/viewers", viewers);
 app.use('/login', require('./routes/login'));
 app.use('/signup', require('./routes/signup'));
 
+
+//Recipe route
+app.use('/recipe', require('./routes/api/recipes'))
 
 // Start the API server
 app.listen(PORT, function() {
