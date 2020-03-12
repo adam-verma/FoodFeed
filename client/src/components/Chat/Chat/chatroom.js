@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useReducer } from "react";
 import queryString from "query-string";
 import io from "socket.io-client";
+import ScrollToBottom from "react-scroll-to-bottom";
 import "./style.css";
 import Message from "./inline.js"
 
@@ -16,24 +17,56 @@ const ChatRoom = ({location}) => {
     const [name, setName] = useState("");
     const [room, setRoom] = useState("");
     
+    const [message, setMessage] = useState([]);
 
 
-    useEffect(() => {
+    const socket = io(ENDPOINT);
+    const streamRoom = queryString.parse(location.search);
+    // useEffect(() => {
         
-        const socket = io(ENDPOINT);
-        const data = queryString.parse(location.search);
-        socket.on("chat message", data => {
-            console.log(data);
-        });
+    //     const socket = io(ENDPOINT);
+    //     const data = queryString.parse(location.search);
+    //     socket.on("chat message", data => {
+    //         console.log(data);
+    //     });
 
+    //     // setName(name);
+    //     // setRoom(room);
         
+    //     socket.emit("join",{}, ({msg}) => {
+    //         alert(msg);
+    //     });
 
-        // setName(name);
-        // setRoom(room);
-        
+    //     return () => {
+    //         socket.emit("disconnect");
+    //         socket.off();
+    //     }
 
-        socket.emit("join", { name, name});
-    },[]);
+
+    // },[streamRoom]);
+
+    useEffect(() =>{
+        socket.on("sendMessage", (message) =>{
+
+            setMessage(message);
+        })
+
+
+
+
+    }, [message]);
+
+
+    const sendMessage = (event) => {
+        if(message) {
+            socket.emit("sendMessage", message, () => setMessage(""));
+        }
+
+        console.log(message);
+    }
+
+
+
 
 
     return ( 
@@ -47,17 +80,22 @@ const ChatRoom = ({location}) => {
                     <div className = "chat rounded-left">
                         <div className = "Title" align="center"><h1>Chat</h1></div>
                         <div className="chatinner rounded-bottom border border-white" style = {{backgroundColor: "#FFAD33"}}>
-                            <Message
-                                username = {"CATMAN"}
-                                message = {"HEY"}
+                            <ScrollToBottom>
+                                <Message username = {"Cartman"} message = {"HEY"}/>
+                                <Message username = {"Kyle"} message = {"What do you want fat-ass?"}/>
+                                <Message username = {"Cartman"} message = {"Shut-up jewboy!"}/>
+                                <Message username = {"Kyle"} message = {"Screw you fatboy!"}/>
+                                {/* {message.map((result, i) =>(
 
+                                    <Message username = {"Stan"} message ={result} />
+                                ))} */}
+                            </ScrollToBottom>
 
-                            />
-                            
 
                         </div>
-                        <input className="form-control form-control-sm" type="text" placeholder="Say Something!"></input>
-                        <button type="button" class="btn btn-outline-dark" type = "submit" >Dark</button>
+                        <input className="form-control form-control-sm" type="text" placeholder="Say Something!" value = {message}  
+                        onChange = {(event) => setMessage(event.target.value)}  onKeyPress = {event => event.key === "Enter" ? sendMessage(event) : null}></input>
+                        <button type="button" className="btn " type = "submit" >Enter</button>
                     </div>
 
                 </div>

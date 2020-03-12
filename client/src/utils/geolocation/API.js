@@ -2,7 +2,7 @@ import axios from "axios";
 require('dotenv').config();
 const APIKEY = process.env.REACT_APP_API_KEY;
 
-console.log(APIKEY);
+
 
 export default{
     Locate: async function(){

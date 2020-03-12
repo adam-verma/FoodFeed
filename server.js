@@ -24,6 +24,22 @@ io.on("connection", (socket) => {
   socket.on("disconnect", () => {
     console.log("A USER DISCONNECTED")
   })
+
+  socket.on("join", ({}, callback) => {
+
+    callback({msg: "Welcome!"});
+  })
+
+
+
+
+  socket.on("sendMessage", (message, callback) =>{
+    console.log(socket.id)
+    console.log(message);
+    
+  })
+  
+
 })
 
 
