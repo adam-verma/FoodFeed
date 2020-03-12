@@ -10,15 +10,16 @@ import SignUp from "./pages/SignUp"
 // import Home from "./pages/Home"
 import { Provider } from "react-redux";
 import store from "./store";
-import Dashboard from "./components/Dashboard/index";
+import Dashboard from "./components/Dashboard";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
 import PrivateRoute from "./components/private-route/PrivateRoute";
-import NavBarStart from "./components/NavBar-Start/index"
+import NavBarStart from "./components/NavBar-Start"
 // Check for token to keep user logged in
 import Sign from "./components/Chat/index.js";
 import ChatRoom from "./components/Chat/Chat/chatroom.js"
+import VideoPlayer from "./components/VideoPlayer"
 
 if (localStorage.jwtToken) {
   // Set auth token header auth
@@ -56,6 +57,7 @@ return (
           <Route exact path = "/SignUp" component = {SignUp} />
           <Route exact path ='/Login'  component={Login} /> 
           <Route path = "/chat" component = {ChatRoom} />
+          <Route path = "/stream" component = {VideoPlayer} />
           <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
            </Switch>

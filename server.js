@@ -16,6 +16,7 @@ const mediaServer = require("node-media-server");
 const viewers = require("./routes/api/viewers");
 const passport = require("passport");
 
+const NodeMediaServer = require('./media_server.js')
 
 io.on("connection", (socket) => {
 
@@ -68,3 +69,5 @@ app.use("/api/viewers", viewers);
 app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
+
+NodeMediaServer.run(); 
