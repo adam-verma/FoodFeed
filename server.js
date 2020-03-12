@@ -13,6 +13,7 @@ const path = require("path");
 const server = require("http").Server(app);
 const io = require("socket.io")(server);
 const viewers = require("./routes/api/viewers");
+const viewer = require("./routes/api/Viewer");
 const passport = require("passport");
 
 
@@ -31,14 +32,11 @@ io.on("connection", (socket) => {
   })
 
 
-
-
   socket.on("sendMessage", (message, callback) =>{
     console.log(socket.id)
     console.log(message);
     
   })
-  
 
 })
 
@@ -64,7 +62,8 @@ app.use(bodyParser.json());
 
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/foodfeed";
 // Connect to Mongo DB
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true }, err => { if(err) { console.log(err); }});
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true }, err => { if(err) { console.log(err); }}).
+then(() => console.log("MONGO DATABASE CONNECTED"));
 
 
 
@@ -74,7 +73,8 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 
 // Routes
-app.use("/api/viewers", viewers);
+// app.use("/api/viewers", viewers);
+// app.use("/api/streamers", viewer);
 
 
 server.listen(PORT2, function() {
