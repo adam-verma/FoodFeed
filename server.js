@@ -63,11 +63,6 @@ io.on("connection", (socket) => {
     console.log("USER DISCONNECTED")
   })
 })
-// response.writeHead(200, {
-//   /// ...
-//   'Access-Control-Allow-Origin' : '*'
-// });
-
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -76,19 +71,9 @@ if (process.env.NODE_ENV === "production") {
 }
 // Add routes, both API and view
 app.use(routes);
-// app.use(routes);
-
 
 // Passport middleware
 app.use(passport.initialize());
-
-
-
-
-// Passport config
-// require("./config/passport")(passport);
-
-
 
 
 // Authentication Routes

@@ -38,37 +38,40 @@ const Recipes = () => {
         
         
           <Row>
-            <Col size="md-12">
+            <div className="col-md-5 mainCon1">
               <form action="/recipes" method="post">
-                <Container>
-                  <Row>
-                    <Col size="xs-9 sm-10">
+              <h1><i class="fas fa-carrot">Recipes</i></h1>
+                <div>
+                  <div className="this-row">
+                    <div>
                       <input
                         name="recipeSearch"
                         value={recipeSearch}
                         onChange={handleInputChange}
                         placeholder="Search For a Recipe"
+                        id="recipeSearch"
+                        className="form-control"
                       />
-                    </Col>
-                    <Col size="xs-3 sm-2">
+                    </div>
+                    <div className="col-md-12 mainCon">
                       <button
                         onClick={handleFormSubmit}
                         type="success"
-                        className="input-lg"
+                        className="btn btn-primary "
                       >
                         Search
                       </button>
-                    </Col>
-                  </Row>
-                </Container>
+                    </div>
+                  </div>
+                </div>
               </form>
-            </Col>
-          </Row>
-          <Row>
-            <Col size="md-12">
-              <div className="p-3">
+            </div>
+          
+          
+            <div className="col-md-6">
+              <div className="r-length">
                 {(recipes.length <= 0) &&
-                  <h2>No recipes to display</h2>
+                  <h2 >No recipes to display</h2>
                 }
                 {(recipes.length > 0) && (
                   <RecipeList>
@@ -81,7 +84,7 @@ const Recipes = () => {
                   </RecipeList>
                 )}
               </div>
-            </Col>
+            </div>
           </Row>
     
       </div>

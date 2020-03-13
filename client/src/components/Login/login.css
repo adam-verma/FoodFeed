@@ -1,6 +1,6 @@
 
 body{
-    background-color: palegreen;
+    background: linear-gradient( to right, rgba(14, 195, 89, 0.822),rgba(26, 193, 193, 0.719))
 }
 
 .account{

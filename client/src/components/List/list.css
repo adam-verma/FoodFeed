@@ -1,0 +1,50 @@
+#listgroup{
+background-color: rgba(32, 178, 171, 0.384);
+border-radius: 80%;
+
+}
+
+#recipeTitle{
+    color: black;
+    float: left;
+}
+
+#ingredients{
+    color: black;
+float: left;
+clear: both;
+}
+
+#thumbnail{
+    width: 200px;
+    border-radius: 50%;
+    float: left;
+}
+
+#recipelink{
+    float: left;
+    clear: both;
+}
+
+#imageContain{
+    background:  linear-gradient( to right, rgba(14, 195, 89, 0.616),rgba(26, 193, 193, 0.466));
+    border-radius: 50%;
+}
+
+.mainIngred, .this-row{
+    background:  linear-gradient( to right, rgba(14, 195, 89, 0.822),rgba(26, 193, 193, 0.719));
+    
+}
+
+#recipeSearch{
+width: 500px;
+
+}
+
+.mainCon1, .mainCon{
+    text-align: center;
+    margin:0 auto;
+
+
+}
+

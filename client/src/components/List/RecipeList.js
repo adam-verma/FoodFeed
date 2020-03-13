@@ -1,6 +1,7 @@
 import React from "react";
 import Thumbnail from "../Thumbnail/Thumbnail";
 import { Container, Row, Col } from "../Grid";
+import "./list.css"
 
 // Exporting both RecipeList and RecipeListItem from this file
 
@@ -17,21 +18,23 @@ export function RecipeListItem({
   href
 }) {
   return (
-    <li className="list-group-item">
-      <Container>
-        <Row>
-          <Col size="xs-4 sm-2">
-            <Thumbnail src={thumbnail} />
-          </Col>
-          <Col size="xs-8 sm-9">
-            <h3>{title}</h3>
-            <p>Ingredients: {ingredients}</p>
-            <a rel="noreferrer noopener" target="_blank" href={href}>
+    <li id="listgroup"className="list-group-item col-md-12">
+      <div  id="listContainer">
+        <div id="recipeRow" className="row">
+          <div className ="col-md-3" id="imageContain">
+          <img src={thumbnail} id="thumbnail" />
+          </div>
+          <div className="col-md-8 mainIngred" >
+            <h3 id="recipeTitle">{title}</h3>
+            <p id="ingredients">Ingredients: {ingredients}</p>
+            
+            
+            <a id="recipelink" rel="noreferrer noopener" target="_blank" href={href}>
               Go to recipe!
             </a>
-          </Col>
-        </Row>
-      </Container>
+          </div>
+        </div>
+      </div>
     </li>
   );
 }
