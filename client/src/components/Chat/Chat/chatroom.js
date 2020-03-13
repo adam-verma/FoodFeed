@@ -3,7 +3,7 @@ import queryString from "query-string";
 import io from "socket.io-client";
 import ScrollToBottom from "react-scroll-to-bottom";
 import "./style.css";
-import Message from "./inline.js"
+import Inline from "./inline.js"
 
 let ENDPOINT;
 
@@ -17,7 +17,9 @@ const ChatRoom = ({location}) => {
     const [name, setName] = useState("");
     const [room, setRoom] = useState("");
     
-    const [message, setMessage] = useState([]);
+    const [message, setMessage] = useState("");
+    const [messages, setMessages] = useState([]);
+
 
 
     const socket = io(ENDPOINT);
@@ -45,24 +47,37 @@ const ChatRoom = ({location}) => {
 
     // },[streamRoom]);
 
-    useEffect(() =>{
-        socket.on("sendMessage", (message) =>{
+    // useEffect(() =>{
+    //     socket.on("sendMessage", (message) =>{
 
-            setMessage(message);
-        })
-
-
+    //         setMessage(message);
+    //     })
 
 
-    }, [message]);
+
+
+    // }, [message]);
 
 
     const sendMessage = (event) => {
+        
         if(message) {
-            socket.emit("sendMessage", message, () => setMessage(""));
+
+
+
+            socket.emit("sendMessage", message)
+            setMessage("")
+            setMessages(oldValue =>
+                 [...oldValue, message]
+            )
+              console.log(messages); 
+        
         }
 
         console.log(message);
+
+
+        
     }
 
 
@@ -81,20 +96,20 @@ const ChatRoom = ({location}) => {
                         <div className = "Title" align="center"><h1>Chat</h1></div>
                         <div className="chatinner rounded-bottom border border-white" style = {{backgroundColor: "#FFAD33"}}>
                             <ScrollToBottom>
-                                <Message username = {"Cartman"} message = {"HEY"}/>
-                                <Message username = {"Kyle"} message = {"What do you want fat-ass?"}/>
-                                <Message username = {"Cartman"} message = {"Shut-up jewboy!"}/>
-                                <Message username = {"Kyle"} message = {"Screw you fatboy!"}/>
-                                {/* {message.map((result, i) =>(
+                                <Inline username = {"Cartman"} message = {"HEY"}/>
+                                <Inline username = {"Kyle"} message = {"What do you want fat-ass?"}/>
+                                <Inline username = {"Cartman"} message = {"Shut-up jewboy!"}/>
+                                <Inline username = {"Kyle"} message = {"Screw you fatboy!"}/>
+                                {messages.map((result) =>(
 
-                                    <Message username = {"Stan"} message ={result} />
-                                ))} */}
+                                    <Inline username = {"Stan"} message ={result} />
+                                ))}
                             </ScrollToBottom>
 
 
                         </div>
                         <input className="form-control form-control-sm" type="text" placeholder="Say Something!" value = {message}  
-                        onChange = {(event) => setMessage(event.target.value)}  onKeyPress = {event => event.key === "Enter" ? sendMessage(event) : null}></input>
+                        onChange = {(event) => setMessage(event.target.value)}  onKeyPress = {event => event.key === "Enter" ? sendMessage(event.target.value) : null}></input>
                         <button type="button" className="btn " type = "submit" >Enter</button>
                     </div>
 

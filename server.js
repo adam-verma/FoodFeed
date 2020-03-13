@@ -20,7 +20,7 @@ const passport = require("passport");
 io.on("connection", (socket) => {
 
   console.log("A USER CONNECTED!");
-  socket.emit("chat message", "HEYO BACK");
+  
 
   socket.on("disconnect", () => {
     console.log("A USER DISCONNECTED")
@@ -33,12 +33,13 @@ io.on("connection", (socket) => {
 
 
   socket.on("sendMessage", (message, callback) =>{
-    console.log(socket.id)
+    console.log(socket.id);
     console.log(message);
+    io.sockets.emit("sendMessage", {message: message, username: socket.id});
     
   })
 
-})
+});
 
 
 

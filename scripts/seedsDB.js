@@ -18,6 +18,37 @@ const streamerSeed = [
         password: "1234567890",
         date: new Date(Date.now()),
         settings: {
+            notifications: {
+                email: {
+                    streamer1: false
+                    
+
+                },
+                sms: {
+                    streamer1: false
+
+                }
+
+            },
+            geolocation: "Houston, Texas",
+            securiprivacy: {
+                twofactor: true,
+                blocked: {
+                    id: "kas3509u9gw2h3423n0f8u"
+
+                }
+            },
+            delete: false,
+            certified:{
+                test1: true,
+                test2: true,
+                test3: true,
+                chefoverride: true
+            },
+            account: {
+                streamerkey: "jnesifuyw3oh238hdf890734f3"
+
+            }
             
 
         }
@@ -42,6 +73,8 @@ const streamerSeed = [
     },
 
 ];
+
+
 
 db.Streamer
   .remove({})
