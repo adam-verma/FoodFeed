@@ -45,6 +45,7 @@ body{
     min-width:90%;
     max-width: 90%;
     margin: 0 auto;
+    overflow-y: scroll;
     
     
     
@@ -88,4 +89,15 @@ h1{
 
     transition-duration:  .3s;
     box-shadow: 1px 1px 44px 1px rgba(97, 196, 235, 0.507);
+}
+
+
+.inline-message{
+    color: black;
+    
+    font-family: "pragati", sans-serif;
+    font-weight: 700;
+    margin: 0 auto;
+    padding: 5px 20px;
+
 }
