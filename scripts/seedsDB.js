@@ -16,7 +16,11 @@ const streamerSeed = [
         name: "Randy Marsh",
         email: "cremefraiche@gawl.com",
         password: "1234567890",
-        date: new Date(Date.now())
+        date: new Date(Date.now()),
+        settings: {
+            
+
+        }
     },
     {
         name: "Sharon Marsh",

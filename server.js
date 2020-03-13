@@ -73,8 +73,9 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 
 // Routes
-// app.use("/api/viewers", viewers);
-// app.use("/api/streamers", viewer);
+app.use("/api/viewers", viewers);
+
+app.use("/api/streamers", viewer);
 
 
 server.listen(PORT2, function() {
