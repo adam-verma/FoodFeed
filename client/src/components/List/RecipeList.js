@@ -1,6 +1,4 @@
 import React from "react";
-import Thumbnail from "../Thumbnail/Thumbnail";
-import { Container, Row, Col } from "../Grid";
 import "./list.css"
 
 // Exporting both RecipeList and RecipeListItem from this file
@@ -22,7 +20,7 @@ export function RecipeListItem({
       <div  id="listContainer">
         <div id="recipeRow" className="row">
           <div className ="col-md-3" id="imageContain">
-          <img src={thumbnail} id="thumbnail" />
+          <img src={thumbnail} id="thumbnail" alt="thumbnail"/>
           </div>
           <div className="col-md-8 mainIngred" >
             <h3 id="recipeTitle">{title}</h3>

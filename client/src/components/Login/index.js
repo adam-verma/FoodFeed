@@ -3,27 +3,24 @@ import "./login.css"
 import Wave from  "../../Images/wave.png"
 import Burger from "../../Images/van.svg"
 import Profile from "../../Images/profile.svg"
-import Van from "../../Images/break.svg"
 
-// The ...props means, spread all of the passed props onto this element
-// That way we don't have to define them all individually
 
 function Login(props) {
     console.log()
   return (
  <React.Fragment>
-        <img className="wave" src = {Wave} />
+        <img className="wave" src = {Wave} alt="wave"/>
         
         <div className = "row">
         
               
             <div className="col-md-6">
-                <img className="van" id="van" src={Burger}/>           
+                <img className="van" id="van" src={Burger} alt="van"/>           
             </div>
 
             <div className="login-container  col-md-6" >
                 <form action ="/login" method ="post">
-                    <img  className="profile" src = {Profile}/>
+                    <img  className="profile" src = {Profile} alt="profile"/>
                     <h2>Welcome</h2>
                     <div className="input-div one">
                         

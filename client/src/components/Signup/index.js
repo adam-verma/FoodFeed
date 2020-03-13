@@ -1,17 +1,14 @@
  
 import React from "react";
 import Wave from  "../../Images/wave.png"
-import Burger from "../../Images/van.svg"
-import Profile from "../../Images/profile.svg"
-import Van from "../../Images/break.svg"
-// The ...props means, spread all of the pas
+
 
 // The ...props means, spread all of the passed props onto this element
 // That way we don't have to define them all individually
 function Register(props) {
   return (
 <React.Fragment>
-    <img className="wave" src = {Wave} />
+    <img className="wave" src = {Wave}  alt="wave"/>
     <div className="container app mt-5">
     <h4>Register</h4>
  

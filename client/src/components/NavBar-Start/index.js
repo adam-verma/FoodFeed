@@ -24,11 +24,11 @@ function Navbar(props) {
           <img src={Logo} alt ="Logo" className="Logo"/>
 
           <li className="nav-item ">
-          <a  className="nav-link" href="#"><i class="fas fa-smile-wink"> About Us</i></a>
+          <a  className="nav-link" href="/about"><i class="fas fa-smile-wink"> About Us</i></a>
           </li>
 
           <li className="nav-item ">
-          <a  className="nav-link" href="#"><i class="fas fa-clipboard"> Apply!</i></a>
+          <a  className="nav-link" href="/apply"><i class="fas fa-clipboard"> Apply!</i></a>
           </li>
 
         

@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import API from '../utils/recipeApi'
-import { Container, Row, Col } from "../components/Grid";
-import Button from "../components/Button/recipeBtn"
-import Input from "../components/Input/recipeInput"
+import {  Row } from "../components/Grid";
 import { RecipeList, RecipeListItem } from "../components/List/RecipeList";
 
 const Recipes = () => {
@@ -71,7 +69,7 @@ const Recipes = () => {
             <div className="col-md-6">
               <div className="r-length">
                 {(recipes.length <= 0) &&
-                  <h2 >No recipes to display</h2>
+                  <h2 className="noRec" >No recipes to display</h2>
                 }
                 {(recipes.length > 0) && (
                   <RecipeList>

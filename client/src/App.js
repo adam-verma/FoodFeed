@@ -1,7 +1,7 @@
 
 
-import React, { useState }  from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 import Start from "./pages/Start";
 import Login from "./pages/Login"
@@ -10,16 +10,13 @@ import SignUp from "./pages/SignUp"
 // import Home from "./pages/Home"
 import { Provider } from "react-redux";
 import store from "./store";
-import Dashboard from "./components/Dashboard/index";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import NavBarStart from "./components/NavBar-Start/index"
 // Check for token to keep user logged in
-import Sign from "./components/Chat/index.js";
 import ChatRoom from "./components/Chat/Chat/chatroom.js"
-import Jumbotron from "./components/Jumbotron";
 import Recipes from "./pages/Recipes";
 
 if (localStorage.jwtToken) {

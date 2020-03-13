@@ -1,12 +1,15 @@
 #listgroup{
 background-color: rgba(32, 178, 171, 0.384);
-border-radius: 80%;
+border-radius: 10%;
 
 }
 
 #recipeTitle{
     color: black;
     float: left;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 30px;
+    font-weight: bold;
 }
 
 #ingredients{
@@ -24,6 +27,9 @@ clear: both;
 #recipelink{
     float: left;
     clear: both;
+    font-size: 20px ;
+    
+
 }
 
 #imageContain{
@@ -31,7 +37,7 @@ clear: both;
     border-radius: 50%;
 }
 
-.mainIngred, .this-row{
+ .this-row{
     background:  linear-gradient( to right, rgba(14, 195, 89, 0.822),rgba(26, 193, 193, 0.719));
     
 }
@@ -48,3 +54,25 @@ width: 500px;
 
 }
 
+#recipeRow{
+margin:10px
+}
+
+
+.noRec{
+    font-family: 'Libre Baskerville', serif;
+    font-style: italic;
+}
+
+.this-row{
+    border-radius: 50%;
+}
+
+.fa-carrot{
+    font-size: 60px;
+}
+
+#ingredients{
+    font-family: 'Libre Baskerville', serif;
+    font-size: 20px;
+}
