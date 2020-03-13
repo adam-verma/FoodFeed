@@ -7,9 +7,9 @@ const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const viewers = require("./routes/api/Viewers");
+// const viewers = require("./routes/api/Viewers");
 const server = require("https").createServer(app);
-const io = require("socket.io").listen(server);
+
 const  Session = require('express-session');
 const  middleware = require('connect-ensure-login');
 const  FileStore = require('session-file-store')(Session);
@@ -41,13 +41,13 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json({extended: true}));
 const PORT2 = process.env.PORT2 || 3002;
 // const session = require("express-session");
-const FileStore = require("session-file-store")(session);
+// const FileStore = require("session-file-store")(session);
 const path = require("path");
-const server = require("http").Server(app);
+// const server = require("http").Server(app);
 const io = require("socket.io")(server);
 const viewers = require("./routes/api/viewers");
 const viewer = require("./routes/api/Viewer");
-const passport = require("passport");
+// const passport = require("passport");
 
 
 io.on("connection", (socket) => {
@@ -87,9 +87,9 @@ app.get('/login', middleware.ensureLoggedIn(), (req, res) => {
 
 });
 
-  socket.on("disconnect", () => {
-    console.log("USER DISCONNECTED")
-  })
+  // socket.on("disconnect", () => {
+  //   console.log("USER DISCONNECTED")
+  // })
 
 
 

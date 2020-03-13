@@ -47,46 +47,18 @@ console.log(props)
 return (
 
 <React.Fragment>
-<NavBarStart/>
-
-    
-      <Router>
-
-      
+  <NavBarStart/>
+   <Router>
       <Route exact path = "/" component = {Start} />
+      <Route exact path = "/SignUp" component = {SignUp} />
+      <Route exact path ='/Login'  component={Login} /> 
+      <Route  exact path="/recipes" component={Recipes} />
+      <Route path = "/chat" component = {ChatRoom} />
+       <Route exact path = "/settings" component = {Settings} />
+   </Router>
 
-       
-  {/* TODO: */}
-  {/* UNCOMMENT OUT/FIX THESE THINGS */}
-{/* <NavBarStart></NavBarStart> */}
-    {/* <Provider store={store}> */}
-      
-        {/* CONTACT DAN BEFORE CHANGING  REACT.FRAGMENT */}
-       
-          
-          
-          {/* <Route path='/Login'component={} */}
-          <Route exact path = "/SignUp" component = {SignUp} />
-          <Route exact path ='/Login'  component={Login} /> 
-         
-          <Route  exact path="/recipes" component={Recipes} />
-              
-           
-                                                                   
-          
-        
-        
-          <Route path = "/chat" component = {ChatRoom} />
-          <Route exact path = "/settings" component = {Settings} />
-          <Switch>
-              <PrivateRoute exact path="/dashboard" component={Dashboard} />
-           </Switch>
-
-     
 
     
-      </Router>
-    {/* </Provider> */}
   </React.Fragment>
   
 )}

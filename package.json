@@ -27,34 +27,27 @@
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.19.0",
-<<<<<<< HEAD
     "bootstrap": "^4.4.1",
     "config": "^3.3.0",
-=======
     "classnames": "^2.2.6",
     "compose": "^0.1.2",
     "express-session": "^1.17.0",
->>>>>>> 6f76afd21ceb4007b16b7d9c262f9c56963899af
     "if-env": "^1.0.4",
     "is-empty": "^1.2.0",
     "jso": "^4.1.1",
     "jsonwebtoken": "^8.5.1",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
-<<<<<<< HEAD
     "shortid": "^2.2.15",
-=======
     "redux": "^4.0.5",
     "redux-devtools": "^3.5.0",
     "session-file-store": "^1.4.0",
->>>>>>> 6f76afd21ceb4007b16b7d9c262f9c56963899af
     "validator": "^12.2.0"
   },
   "devDependencies": {
     "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
     "concurrently": "^5.1.0",
-<<<<<<< HEAD
     "connect-ensure-login": "^0.1.1",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.4",
@@ -62,14 +55,9 @@
     "express": "^4.17.1",
     "express-mongoose": "^0.1.0",
     "express-session": "^1.17.0",
-    "mongoose": "^5.9.3",
-=======
     "css-loader": "^3.4.2",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "express-mongoose": "^0.1.0",
     "mongoose": "^5.9.4",
->>>>>>> 6f76afd21ceb4007b16b7d9c262f9c56963899af
     "nodemon": "^2.0.2",
     "passport-local": "^1.0.0",
     "react-router-dom": "^5.1.2",
