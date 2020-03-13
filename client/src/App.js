@@ -16,8 +16,10 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import NavBarStart from "./components/NavBar-Start/index"
 // Check for token to keep user logged in
-import ChatRoom from "./components/Chat/Chat/chatroom.js"
 import Recipes from "./pages/Recipes";
+import Sign from "./components/Chat/index.js";
+import ChatRoom from "./components/Chat/Chat/chatroom.js";
+import Settings from "./pages/settings.js";
 
 if (localStorage.jwtToken) {
   // Set auth token header auth
@@ -47,18 +49,26 @@ return (
 <React.Fragment>
 <NavBarStart/>
 
-    <Provider store={store}>
+    
       <Router>
 
       
       <Route exact path = "/" component = {Start} />
 
        
+  {/* TODO: */}
+  {/* UNCOMMENT OUT/FIX THESE THINGS */}
+{/* <NavBarStart></NavBarStart> */}
+    {/* <Provider store={store}> */}
+      
+        {/* CONTACT DAN BEFORE CHANGING  REACT.FRAGMENT */}
+       
+          
           
           {/* <Route path='/Login'component={} */}
           <Route exact path = "/SignUp" component = {SignUp} />
           <Route exact path ='/Login'  component={Login} /> 
-          <Route exact path = "/chat" component = {ChatRoom} />
+         
           <Route  exact path="/recipes" component={Recipes} />
               
            
@@ -66,12 +76,19 @@ return (
           
         
         
+          <Route path = "/chat" component = {ChatRoom} />
+          <Route exact path = "/settings" component = {Settings} />
+          <Switch>
+              <PrivateRoute exact path="/dashboard" component={Dashboard} />
+           </Switch>
 
+     
 
+    
       </Router>
-    </Provider>
-  
+    {/* </Provider> */}
   </React.Fragment>
+  
 )}
 ;
 

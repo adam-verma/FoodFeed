@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 // Create Schema
-const StreamerSchema = new Schema({
+const ViewerSchema = new Schema({
   name: {
     type: String,
     required: true
@@ -19,4 +19,5 @@ const StreamerSchema = new Schema({
     default: Date.now
   }
 });
-module.exports = Streamer = mongoose.model("streamer", StreamerSchema);
+module.exports = Viewer = mongoose.model("viewers", ViewerSchema);
+

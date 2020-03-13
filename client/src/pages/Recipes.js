@@ -38,7 +38,7 @@ const Recipes = () => {
           <Row>
             <div className="col-md-5 mainCon1">
               <form action="/recipes" method="post">
-              <h1><i class="fas fa-carrot">Recipes</i></h1>
+              <h1><i class="fas fa-carrot"> Recipes <i class="fas fa-apple-alt"></i></i> </h1>
                 <div>
                   <div className="this-row">
                     <div>
