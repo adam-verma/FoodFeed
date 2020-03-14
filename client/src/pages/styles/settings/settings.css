@@ -1,14 +1,14 @@
-body, html, #asdf{
+/* body, html, #root, .App{
     min-height: 100vh;
     color: rgb(0, 0, 0);
-    background-color: rgb(250, 250, 250);
+    
 }
 
 #asdf{
     margin: 0;
     display: grid;
-    grid-template-columns: auto 60% 25%;
-    grid-template-rows: 8% 50% auto;
+    grid-template-columns: 15% 60% 25%;
+    grid-template-rows: 33% 33% 33%;
     grid-template-areas: 
     "sidebar header header"
     "sidebar sect1  sect2"
@@ -39,7 +39,7 @@ li:active{
     background-color: rgb(49, 49, 49);
     box-shadow: inset 1px 1px 1px 1px black;
     border-color: white;
-}
+} 
 
 
 
@@ -49,9 +49,21 @@ aside{
     grid-area: sidebar;
     background-color: rgba(110, 255, 52, 0.89);
 }
-header{
+
+#navStart{
     grid-area: header;
-    background-color: rgb(255, 255, 255);
+    position: fixed ;
+}
+
+.full{
+grid-area: sect1;
+float: left;
+
+}
+
+
+.loginDiv{
+    grid-area: sect2;
 }
 
 
@@ -65,4 +77,4 @@ header{
 
 div{
     margin-left: 10px;
-}
+} */
