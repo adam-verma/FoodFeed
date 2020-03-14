@@ -5,6 +5,8 @@ import videojs from "video.js"
 import config from "../../../config/media_config"
 import API from "../utils/API"
 
+
+const LiveStream = () => {
 const [stream, setStream] = useState({
     stream: false, 
     videoJsOptions: null
@@ -35,7 +37,7 @@ const loadStream = async () => {
             }
         }, () => {
             const player = videojs(videoNode, videoJsOptions, function onPlayerReady() {
-                console.log('onPlayerReady')
+                console.log('onPlayerReady', player);
             });
         });
     } catch(err) {
@@ -45,4 +47,5 @@ const loadStream = async () => {
     }
 };
 
+}
     

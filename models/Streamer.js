@@ -23,4 +23,4 @@ const StreamerSchema = new Schema({
     default: Date.now
   }
 });
-module.exports = Streamer = mongoose.model("Streamers", StreamerSchema);
+module.exports = Streamer = mongoose.model("streamer", StreamerSchema);
