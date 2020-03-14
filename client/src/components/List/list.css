@@ -2,6 +2,9 @@
 background-color: rgba(32, 178, 171, 0.384);
 border-style: solid ;
 border-width: 5px;
+animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
 
 
 }
@@ -24,7 +27,7 @@ clear: both;
 #thumbnail{
     width: 200px;
     border-radius: 50%;
-    float: left;
+    margin: 0 auto
 }
 
 #recipelink{
@@ -67,7 +70,8 @@ text-align: center
 }
 
 #recipeRow{
-margin:10px
+margin:10px;
+text-align: center;
 }
 
 
@@ -93,7 +97,9 @@ margin:10px
 #ingredients{
     font-family: 'Libre Baskerville', serif;
     font-size: 20px;
+    
 }
+
 
 #navbarDropdown{
     float:left
@@ -115,4 +121,11 @@ font-size: 60px;
 #containme{ 
     width: 3000px;
     background-color: rgba(0, 0, 0, 0.137);
+    animation-name: moveInUP;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+}
+
+.mainIngred{
+    margin: 0 auto;
 }

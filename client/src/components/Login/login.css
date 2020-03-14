@@ -173,3 +173,17 @@ animation-timing-function: ease-out;
         }
     }
        
+
+    @keyframes moveInUP {
+        0%{
+         opacity: 0;
+         transform: translateY(100px);
+        }
+        80%{
+           transform: translateX(-10px);
+        }
+        100%{
+         opacity: 1;
+         transform: translate(0);
+        }
+    }

@@ -16,13 +16,13 @@ export function RecipeListItem({
   href
 }) {
   return (
-    <li id="listgroup"className="list-group-item">
+    <li id="listgroup"className="list-group-item row">
       <div  id="listContainer">
         <div id="recipeRow" className="row">
           <div className ="" id="imageContain">
           <img src={thumbnail} id="thumbnail" alt="thumbnail"/>
           </div>
-          <div className=" mainIngred" >
+          <div className="mainIngred" >
             <h3 id="recipeTitle">{title}</h3>
             <p id="ingredients">Ingredients: {ingredients}</p>
             
