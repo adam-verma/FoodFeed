@@ -19,7 +19,7 @@ import NavBarStart from "./components/NavBar-Start"
 // Check for token to keep user logged in
 import Sign from "./components/Chat/index.js";
 import ChatRoom from "./components/Chat/Chat/chatroom.js"
-import VideoPlayer from "./components/VideoPlayer"
+import VideoPlayer from "./components/VideoPlayer";
 
 if (localStorage.jwtToken) {
   // Set auth token header auth

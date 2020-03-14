@@ -12,7 +12,11 @@ export default {
 
     // Gets user
     getUser: function() {
-        return axios.get("/user")
+        return axios.get("/user", {
+            params: { 
+                username: props.match.params.username
+            }
+        })
     },
 
     // Get stream key
