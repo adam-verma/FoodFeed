@@ -11,14 +11,14 @@ function Login(props) {
  <React.Fragment>
         <img className="wave" src = {Wave} alt="wave"/>
         
-        <div className = "row">
+        <div className = "row loginDiv">
         
               
-            <div className="col-md-6">
+            
                 <img className="van" id="van" src={Burger} alt="van"/>           
-            </div>
+            
 
-            <div className="login-container  col-md-6" >
+            <div className="login-container" >
                 <form action ="/login" method ="post">
                     <img  className="profile" src = {Profile} alt="profile"/>
                     <h2>Welcome</h2>

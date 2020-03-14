@@ -47,8 +47,16 @@ clear: both;
 }
 
 #recipeSearch{
-width: 500px;
+width: 550px;
+padding:0px;
+text-align: center
 
+}
+
+.form-control{
+    padding:0px;
+    margin:none ;
+    text-align: center
 }
 
 .mainCon1, .mainCon{
@@ -74,9 +82,37 @@ margin:10px
 
 .fa-carrot{
     font-size: 60px;
+    color:orange
+}
+
+.fa-apple-alt{
+    font-size: 60px;
+    color:  rgba(187, 19, 19, 0.829)
 }
 
 #ingredients{
     font-family: 'Libre Baskerville', serif;
     font-size: 20px;
+}
+
+#navbarDropdown{
+    float:left
+}
+
+#text{
+color: black;
+font-size: 60px;
+}
+
+#navy{
+    height: 25vh
+}
+
+#recBtn{
+    margin: 0 auto;
+}
+
+#containme{ 
+    width: 3000px;
+    background-color: rgba(0, 0, 0, 0.137);
 }

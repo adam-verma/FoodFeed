@@ -1,6 +1,6 @@
 import React from "react";
 import "./list.css"
-
+import "../../pages/styles/settings/style.css"
 // Exporting both RecipeList and RecipeListItem from this file
 
 // RecipeList renders a bootstrap list item
@@ -16,13 +16,13 @@ export function RecipeListItem({
   href
 }) {
   return (
-    <li id="listgroup"className="list-group-item col-md-12">
+    <li id="listgroup"className="list-group-item">
       <div  id="listContainer">
         <div id="recipeRow" className="row">
-          <div className ="col-md-3" id="imageContain">
+          <div className ="" id="imageContain">
           <img src={thumbnail} id="thumbnail" alt="thumbnail"/>
           </div>
-          <div className="col-md-8 mainIngred" >
+          <div className=" mainIngred" >
             <h3 id="recipeTitle">{title}</h3>
             <p id="ingredients">Ingredients: {ingredients}</p>
             
