@@ -20,6 +20,8 @@ import NavBarStart from "./components/NavBar-Start/index"
 import Sign from "./components/Chat/index.js";
 import ChatRoom from "./components/Chat/Chat/chatroom.js";
 import Settings from "./pages/settings.js";
+import VideoGallery from "./pages/videoGalleryPage.js";
+
 
 if (localStorage.jwtToken) {
   // Set auth token header auth
@@ -62,6 +64,7 @@ return (
           <Route exact path ='/Login'  component={Login} /> 
           <Route path = "/chat" component = {ChatRoom} />
           <Route exact path = "/settings" component = {Settings} />
+          <Route exact path = "/mainPage" component = {VideoGallery} />
           <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
            </Switch>
