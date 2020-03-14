@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import to from 'await-to-js';
-import "./styles/settings/style.css";
+import "./styles/settings/settings.css";
 
 import Notifications from "../components/SettingsGroup/notifications.js";
 
@@ -97,7 +97,8 @@ const Settings = (props) => {
 
 
     return (
-        <React.Fragment>
+        
+            <div id = "asdf">
             <aside>
                 <h1>Settings</h1>
                 <ul>
@@ -124,8 +125,8 @@ const Settings = (props) => {
             <section></section>
             
             <main></main>
-            
-        </React.Fragment>
+        </div>
+        
     )
 }
 
