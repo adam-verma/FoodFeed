@@ -10,15 +10,10 @@ const PORT2 = process.env.PORT2 || 3002;
 const session = require("express-session");
 const FileStore = require("session-file-store")(session);
 const path = require("path");
-<<<<<<< HEAD
 const server = require("https").createServer(app);
 const io = require("socket.io").listen(server);
 const mediaServer = require("node-media-server");
 
-=======
-const server = require("http").Server(app);
-const io = require("socket.io")(server);
->>>>>>> 6f76afd21ceb4007b16b7d9c262f9c56963899af
 const viewers = require("./routes/api/viewers");
 const viewer = require("./routes/api/Viewer");
 const passport = require("passport");

@@ -1,0 +1,189 @@
+
+body{
+    background: linear-gradient( to right, rgba(14, 195, 89, 0.822),rgba(26, 193, 193, 0.719))
+}
+
+.account{
+    font-size: 17px;
+}
+.wave{
+    position: fixed;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    
+    animation-name: moveInLeft;
+animation-duration: 2s;
+animation-timing-function: ease-out;
+    }
+    
+h2{
+    
+font-family: 'Poppins', sans-serif;
+
+}
+
+.img{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;  
+    width: 300px;
+  }
+
+
+.van{
+    justify-content: flex-end;
+    width: 600px;
+position: absolute; right: 0; bottom: 0;
+margin-right: 200px;
+transition: all 1.5s linear;
+animation-name: moveInLeft;
+animation-duration: 3s;
+animation-timing-function: ease-out;
+}
+
+  
+.profile{
+    width: 100px; 
+}
+    
+
+
+     
+      
+   
+      
+ .login-container{
+          display: flex;
+          align-items: center;
+          text-align: center;
+    
+      }
+
+      
+      form{
+          font-size: 2.9rem;
+          text-transform: uppercase;
+          margin: 15px 0;
+          width: 500px;
+          animation-name: moveInRight;
+animation-duration: 3s;
+animation-timing-function: ease-out;
+          
+        
+      }
+      
+      .input-div{
+          display: grid;
+          /* grid-template-columns: 15% 85%; */
+          margin: 25px 0;
+          padding: 5px 0;
+          border-bottom: 2px
+      }
+      
+       label{
+          color: lightseagreen;
+          font-size: 25px;
+          
+
+      }
+      
+
+      form{
+          font-size: 5.9rem;
+          text-transform: uppercase;
+          color: #333;
+      }
+     
+      
+      .i{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          
+      }
+      
+      
+      
+      .input-div > div{
+          position: relative;
+          height: 45px;
+      }
+      
+      .input-div > div h5{
+          position: absolute;
+          left:10px;
+          top: 50%;
+          transform: translateY(-50%);
+          font-size: 18px;
+          transition: .3s;
+      }
+     
+      #loginbtn{
+          display: block;
+          width: 100%;
+          height: 50px;
+          border-radius: 20px;
+          margin: 1rem 0;
+          font-size: 1.2rem;
+          outline: none;
+          border: none;
+          background-image: linear-gradient(to right, lightseagreen,rgb(10, 240, 10));
+          float: right;
+      }
+
+      #loginbtn:hover{
+        display: block;
+        width: 100%;
+        height: 50px;
+        border-radius: 20px;
+        margin: 1rem 0;
+        font-size: 1.2rem;
+        outline: none;
+        border: none;
+        background-image: linear-gradient(to left, lightseagreen,rgb(10, 240, 10));
+    }
+      
+    @keyframes moveInLeft {
+        0%{
+        opacity: 0;
+        transform: translateX(-100px);
+        }
+        80%{
+            transform: translateX(10px);
+        }
+        100%{
+        opacity: 1;
+        transform: translate(0);
+        }
+    }
+    
+    @keyframes moveInRight {
+        0%{
+         opacity: 0;
+         transform: translateX(100px);
+        }
+        80%{
+           transform: translateX(-10px);
+        }
+        100%{
+         opacity: 1;
+         transform: translate(0);
+        }
+    }
+       
+
+    @keyframes moveInUP {
+        0%{
+         opacity: 0;
+         transform: translateY(100px);
+        }
+        80%{
+           transform: translateX(-10px);
+        }
+        100%{
+         opacity: 1;
+         transform: translate(0);
+        }
+    }

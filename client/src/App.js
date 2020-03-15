@@ -1,7 +1,7 @@
 
 
-import React, { useState }  from "react";
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./App.css";
 import Start from "./pages/Start";
 import Login from "./pages/Login"
@@ -17,14 +17,11 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import NavBarStart from "./components/NavBar-Start"
 // Check for token to keep user logged in
+import Recipes from "./pages/Recipes";
 import Sign from "./components/Chat/index.js";
-<<<<<<< HEAD
-import ChatRoom from "./components/Chat/Chat/chatroom.js"
 import VideoPlayer from "./components/VideoPlayer";
-=======
 import ChatRoom from "./components/Chat/Chat/chatroom.js";
 import Settings from "./pages/settings.js";
->>>>>>> 6f76afd21ceb4007b16b7d9c262f9c56963899af
 
 if (localStorage.jwtToken) {
   // Set auth token header auth
@@ -52,33 +49,24 @@ console.log(props)
 return (
 
 <React.Fragment>
-  {/* TODO: */s}
-  {/* UNCOMMENT OUT/FIX THESE THINGS */}
-{/* <NavBarStart></NavBarStart> */}
-    {/* <Provider store={store}> */}
-      <Router>
-        {/* CONTACT DAN BEFORE CHANGING  REACT.FRAGMENT */}
-        <React.Fragment>
-          
-          
-          <Route exact path = "/" component = {Start} />
-          {/* <Route path='/Login'component={} */}
-          <Route exact path = "/SignUp" component = {SignUp} />
-          <Route exact path ='/Login'  component={Login} /> 
-          <Route path = "/chat" component = {ChatRoom} />
-          <Route path = "/stream" component = {VideoPlayer} />
-          <Route exact path = "/settings" component = {Settings} />
-          <Switch>
-              <PrivateRoute exact path="/dashboard" component={Dashboard} />
-           </Switch>
-
-        </React.Fragment>
+  <NavBarStart/>
+   <Router>
+      <Route exact path = "/" component = {Start} />
+      <Route exact path = "/SignUp" component = {SignUp} />
+      <Route exact path ='/Login'  component={Login} /> 
+      <Route  exact path="/recipes" component={Recipes} />
+      <Route path = "/chat" component = {ChatRoom} />
+      <Route path = "/stream" component = {VideoPlayer} />
+      <Route exact path = "/settings" component = {Settings} />
+      <Switch>
+        <PrivateRoute exact path="/dashboard" component={Dashboard} />
+      </Switch>
+   </Router>
 
 
-      </Router>
-    {/* </Provider> */}
-  
+    
   </React.Fragment>
+  
 )}
 ;
 
