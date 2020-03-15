@@ -1,10 +1,11 @@
-/* body, html, #root, .App{
+#settings-page{
     min-height: 100vh;
+    min-width: 100vw;
     color: rgb(0, 0, 0);
     
 }
 
-#asdf{
+#settings-page{
     margin: 0;
     display: grid;
     grid-template-columns: 15% 60% 25%;
@@ -23,6 +24,7 @@
 
 
 li{
+    
     list-style: none;
 }
 li:hover{
@@ -52,19 +54,15 @@ aside{
 
 #navStart{
     grid-area: header;
-    position: fixed ;
+    /* position: fixed ; */
 }
 
-.full{
+sectio{
 grid-area: sect1;
 float: left;
 
 }
 
-
-.loginDiv{
-    grid-area: sect2;
-}
 
 
 .card{
@@ -77,4 +75,4 @@ float: left;
 
 div{
     margin-left: 10px;
-} */
+}

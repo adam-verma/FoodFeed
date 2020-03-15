@@ -98,7 +98,7 @@ const Settings = (props) => {
 
     return (
         
-            <div id = "asdf">
+            <div id = "settings-page">
             <aside>
                 <h1>Settings</h1>
                 <ul>
@@ -118,11 +118,11 @@ const Settings = (props) => {
                 </ul>
             </aside>
             <header></header>
-            <section>
+            <sectio>
             {componentMap[component]}
 
-            </section>
-            <section></section>
+            </sectio>
+            <sectio></sectio>
             
             <main></main>
         </div>
