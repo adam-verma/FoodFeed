@@ -1,7 +1,7 @@
 .contain{
-    background-color: black;
+    background-color: rgba(30, 30, 30, 0.733);
     min-height: calc(100vh - 153px);
-    min-width: 100vw;
+    min-width: calc(100vw - 10px);
     font-family: 'Raleway', sans-serif;
     font-size: 40px;
     overflow: hidden;
@@ -28,11 +28,11 @@
     line-height: 75px;
     grid-area: paragraph;
 
-    -webkit-animation: fadein 2s ease-in;
-    -moz-animation: fadein 2s ease-in;
-    -o-animation: fadein 2s ease-in;
-    -ms-animation: fadein 2s ease-in;
-    animation: fadein 2s ease-in;
+    -webkit-animation: fadein 1.5s ease-in;
+    -moz-animation: fadein 1.5s ease-in;
+    -o-animation: fadein 1.5s ease-in;
+    -ms-animation: fadein 1.5s ease-in;
+    animation: fadein 1.5s ease-in;
 
 }
 
@@ -40,6 +40,13 @@
 .video{
 
     grid-area: carousel;
+    
+    
+    -webkit-animation: fadein 0.5s ease-in;
+    -moz-animation: fadein 0.5s ease-in;
+    -o-animation: fadein 0.5s ease-in;
+    -ms-animation: fadein 0.5s ease-in;
+    animation: fadein 0.5s ease-in;
 
 }
 
@@ -49,6 +56,14 @@
     left: 50%;
     grid-area: down;
     align-items: center;
+
+
+}
+
+.app{
+    position: relative;
+    bottom:  20px;
+    grid-area: carousel;
 
 
 }

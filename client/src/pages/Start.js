@@ -5,7 +5,11 @@ import Pad from "../components/Pad/Pad.js";
 import cfs1 from "../media/video/cfs1.mp4";
 import cfs2 from "../media/video/cfs2.mp4";
 import cfs3 from "../media/video/cfs3.mp4";
-import { set } from "mongoose";
+import Register from "../components/Signup/index.js";
+
+import "../pages/styles/start/start.css";
+
+
 
 
 const Start = () =>{
@@ -24,7 +28,7 @@ const Start = () =>{
 
         setSlide(slide);
         
-        document.createElement("source").src = cfs2;
+        
         
     }
 
@@ -51,10 +55,18 @@ const Start = () =>{
             <Pad
                 text = {"Looks delish? Nearby? Order right from the comfort of your home!"}
                 video = {document.getElementsByTagName("source").src = cfs3}
-                click = {() => update("slide1")}
+                click = {() => update("slide4")}
             />
-
-
+        ,
+        slide4:
+            
+                <>
+                    
+                    <Register
+                        appendClass = {document.getElementsByClassName("container").className = "contain"}
+                    />
+                </>
+            
     }
 
 

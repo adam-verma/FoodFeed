@@ -8,13 +8,13 @@ import cfs3 from "../../media/video/cfs3.mp4";
 
 const Pad = (props) =>(
     <div className = "contain">
-        <div className = "Paragraph-opening">
+        <div className = "Paragraph-opening" key = {props.text}>
             <p>{props.text}</p>
 
         </div>
         
         <div className = "video" key = {props.video}>
-                <video className = "video" loop autoPlay>
+                <video className = "video rounded" loop autoPlay>
                     <source className="d-block" src={props.video} alt="First"></source>
                 </video>
         </div>
