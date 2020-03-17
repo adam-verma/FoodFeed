@@ -1,10 +1,68 @@
-.profile{
+.supreme{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
+    height: 100%;
+    width: 100%;
+    
+    flex-direction: column;
+
+    font-size: 2em;
+}
+
+.div1{
     position: relative;
-    right: 15%;
+    left: 10%;
+    width: 100%;
+}
+.div2{
+    position: relative;
+    left: 10%;
+    width: 100%;
+    height: auto;
+}
+
+
+
+
+.profile{
+    width: 1000px;
     background-color: white;
     color: black;
+    margin: 0;
+    padding: 10px;
+
 
 
     /* TODO: REMOVE THIS SECTION OF PROFILE LATER DAN */
     font-weight: 600;
+}
+
+
+
+
+
+
+
+
+
+
+/* //////////////////////////////////////////////////////// */
+
+#image{
+    width: 25%;
+}
+#coverPhoto{
+    width: 1000px;
+    
+}
+
+
+
+.panel-body{
+    
+
+
+
 }

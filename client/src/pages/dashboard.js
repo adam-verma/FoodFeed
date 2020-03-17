@@ -27,6 +27,8 @@ const Dashboard = () => {
         <>
 
             <Identity
+                coverImage = {"https://via.placeholder.com/1000x200"}
+                image = {"https://via.placeholder.com/500"}
                 name = {"Dan Deva"}
             />
         
