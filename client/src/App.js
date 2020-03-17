@@ -20,7 +20,8 @@ import Recipes from "./pages/Recipes";
 import Sign from "./components/Chat/index.js";
 import ChatRoom from "./components/Chat/Chat/chatroom.js";
 import Settings from "./pages/settings.js";
-import VideoGallery from "./pages/videoGalleryPage.js";
+import Dashboard from "./pages/dashboard.js";
+
 
 
 if (localStorage.jwtToken) {
@@ -56,6 +57,7 @@ return (
       <Route exact path ='/Login'  component={Login} /> 
       <Route  exact path="/recipes" component={Recipes} />
       <Route path = "/chat" component = {ChatRoom} />
+      <Route exact = "/profile" component = {Dashboard} />
        <Route exact path = "/settings" component = {Settings} />
    </Router>
 

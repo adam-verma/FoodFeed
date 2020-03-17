@@ -1,0 +1,10 @@
+.profile{
+    position: relative;
+    right: 15%;
+    background-color: white;
+    color: black;
+
+
+    /* TODO: REMOVE THIS SECTION OF PROFILE LATER DAN */
+    font-weight: 600;
+}
