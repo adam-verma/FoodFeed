@@ -7,21 +7,36 @@
     width: 100%;
     
     flex-direction: column;
-
-    font-size: 2em;
+    
+    
 }
 
 .div1{
     position: relative;
     left: 10%;
     width: 100%;
+    padding: 10px;
 }
 .div2{
     position: relative;
     left: 10%;
     width: 100%;
-    height: auto;
+    height: 1000px;
 }
+
+.fab{
+    position: relative;
+    left: -1%;
+
+    padding: 10px;
+    font-size: 2em;
+
+}
+
+
+
+
+
 
 
 
@@ -30,7 +45,7 @@
     width: 1000px;
     background-color: white;
     color: black;
-    margin: 0;
+    margin-bottom: 0;
     padding: 10px;
 
 
@@ -39,6 +54,34 @@
     font-weight: 600;
 }
 
+.div2half{
+    
+}
+
+
+
+
+
+
+
+
+
+.container-1{
+    display: flex;
+}
+.favoriteRecipes{
+    font-size: 16px !important;
+    order: 2;
+    flex: 1;
+}
+#aboutme{
+    order: 1;
+    flex: 2;
+
+
+    min-height: 300px;
+
+}
 
 
 
@@ -51,18 +94,31 @@
 /* //////////////////////////////////////////////////////// */
 
 #image{
+    vertical-align: bottom;
     width: 25%;
+    margin-right: 5px;
 }
 #coverPhoto{
     width: 1000px;
     
+}
+#editProfile{
+    position: relative;
+    left: 1%;
+
 }
 
 
 
 .panel-body{
     
+    margin: 5px;
+
+
+}
 
 
 
+p{
+    margin: 5px;
 }
