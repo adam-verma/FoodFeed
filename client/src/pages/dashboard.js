@@ -2,7 +2,7 @@ import React from "react";
 import "../pages/styles/dashboard/dashboard.css";
 
 import Identity from "../components/ProfileGroup/identity.js";
-
+import Modal from "../components/ModalGroup/modal.js";
 
 const Dashboard = () => {
 
@@ -12,7 +12,11 @@ const Dashboard = () => {
 
 
 
+    const modalToggle = () => {
+        
 
+
+    }
 
 
 
@@ -33,7 +37,8 @@ const Dashboard = () => {
                 aboutMe = {"Hey my name is Dan! Nice to meet you. I've been cooking for a bagillion years. I love to share the art to the rest of the world. While I am, inconsistent scheduling wise, I promise you wouldn't want to miss my streams!"}
 
 
-
+                cardCheckout = {() => modalToggle()}
+                
 
 
 
@@ -73,14 +78,12 @@ const Dashboard = () => {
 
 
 
-
-
-
-
-
-                
             />
-        
+            <Modal
+                Title = {"Cart/Checkout"}
+                modalBody = {"HEY HI WHATS UP! THATS A FINE ASS BODY YOU HAVE!"}
+            
+            />
 
 
 

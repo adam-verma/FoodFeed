@@ -98,7 +98,7 @@ const Identity = (prop) => (
                                 <i class="fab fa-patreon"></i>
                             </a>
                             <button className = "btn btn-primary btn-sm" id = "editProfile">Edit Profile</button>
-                            <button className = "btn btn-primary btn-sm" id = "cartCheckout">Cart/Checkout</button>
+                            <button className = "btn btn-primary btn-sm" id = "cartCheckout" onClick = {prop.cardCheckout}>Cart/Checkout</button>
                         </div>
 
                     </div>
