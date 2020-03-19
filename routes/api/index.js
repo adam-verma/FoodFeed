@@ -1,7 +1,7 @@
-const router = require("express").Router; 
-const StreamerRoutes = require("./Streamer");
+const router = require("express").Router(); 
+const StreamerRoutes = require("./streams");
 
 // Streamer routes
-router.use("/streamer", StreamerRoutes);
+router.use("/streams", StreamerRoutes);
 
 module.exports = router; 

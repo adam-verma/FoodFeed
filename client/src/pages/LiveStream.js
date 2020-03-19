@@ -1,51 +1,62 @@
 import React, {useState, useEffect} from "react";
-import LiveStreams from "../components/LiveStreams";
+// import LiveStream from "../components/LiveStreams";
+import { Link } from "react-router-dom";
 import { Col, Row, Container} from "../components/Grid";
-import videojs from "video.js"
-import config from "../../../config/media_config"
 import API from "../utils/API"
 
-
 const LiveStream = () => {
-const [stream, setStream] = useState({
-    stream: false, 
-    videoJsOptions: null
-})
+    // Setting our component's intial state 
+    const [streams, setStream] = useState[{
+        live_streams: []
+    }]
 
+    useEffect(() => {
+        loadLiveStream();
+    }, []);
 
-useEffect(() => { 
-    loadStream();
-    return() => {
-        
+    const loadLiveStream = async (props) => {
+        try {
+            const res = await API.getLiveStream(props.match.params.streams);
+            setStream({live_streams: res.data})
+            console.log(streams);
+        } catch (err) { 
+            console.group("Load Live Stream");
+            console.log(err);
+            console.groupEnd();
+        }
     }
-}, []);
 
-// Load user stream
-const loadStream = async () => {
-    try {
-        const res = await API.getUser(); 
-        setStream({ 
-            stream: true, 
-            videoJsOptions: {
-                autoplay: false,
-                controls: true,
-                sources: [{
-                    src: `http://127.0.0.1:${config.rtmp_server.http.port}/live/${res.data.streamKey}/index.m3u8`,
-                    type: 'application/x-mpegURL'
-                }],
-                fluid: true,
-            }
-        }, () => {
-            const player = videojs(videoNode, videoJsOptions, function onPlayerReady() {
-                console.log('onPlayerReady', player);
-            });
-        });
-    } catch(err) {
-        console.group("LOAD STREAM");
-        console.log(err);
-        console.groupEnd(); 
-    }
-};
-
-}
+        let streamView = streams.map((stream, index) => {
+            return (
+            <Container fluid> 
+                <Row>
+                    <Col size= "xs-12 sm-12 md-3 lg-4">
+                        <span className="live-label">LIVE</span>
+                        <Link to = {`/streams/${stream.username}`}>
+                           <div className="stream-thumbnail">
+                               <img src={`/thumbnails/${stream.streamKey}.png`} />
+                           </div>
+                        </Link>
+                        <span className="username">
+                            <Link to= {`/streams/${stream.username}`}>
+                                {stream.username}
+                            </Link>
+                        </span>
+                    </Col>
+                </Row>
     
+                <Row> 
+                    <Container fluid> 
+                        <h4>Live Streams</h4>
+                        <hr />
+                        <Row className= "streams row">
+                            {streamView}
+                        </Row> 
+                    </Container>
+                </Row>
+            </Container>
+            )
+        })
+}
+
+export default LiveStream;

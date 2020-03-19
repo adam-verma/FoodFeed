@@ -7,18 +7,21 @@ const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
 const PORT2 = process.env.PORT2 || 3002;
-const session = require("express-session");
-const FileStore = require("session-file-store")(session);
+const Session = require("express-session");
+const middleware = require("connect-ensure-login");
+const flash = require("connect-flash");
+const FileStore = require("session-file-store")(Session);
 const path = require("path");
 const server = require("https").createServer(app);
 const io = require("socket.io").listen(server);
-const mediaServer = require("node-media-server");
-
+const config = require("./config/media_config");
 const viewers = require("./routes/api/viewers");
 const viewer = require("./routes/api/Viewer");
+const User = require("./routes/api/user");
+const Stream = require("./routes/api/streams");
 const passport = require("passport");
 
-const NodeMediaServer = require('./media_server.js')
+const NodeMediaServer = require('./media_server.js');
 
 io.on("connection", (socket) => {
 
@@ -44,7 +47,15 @@ io.on("connection", (socket) => {
 
 });
 
-
+app.use(Session({
+  store: new FileStore({
+      path : 'server/sessions'
+  }),
+  secret: config.server.secret,
+  maxAge : Date().now + (60 * 1000 * 30),
+  resave : true,
+  saveUninitialized : false,
+}));
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -69,18 +80,21 @@ const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/foodfeed";
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true }, err => { if(err) { console.log(err); }}).
 then(() => console.log("MONGO DATABASE CONNECTED"));
 
-
+app.use(flash());
 
 // Passport middleware
 app.use(passport.initialize());
 // Passport config
-require("./config/passport")(passport);
+require("./config/passport");
 
-// Routes
+// Register app routes
 app.use("/api/viewers", viewers);
 
 app.use("/api/streamers", viewer);
 
+app.use("/streams", Stream);
+
+app.use("/user", User);
 
 server.listen(PORT2, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT2}!`);

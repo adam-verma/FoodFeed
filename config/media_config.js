@@ -11,8 +11,8 @@ const media_config = {
             ping_timeout: 30
         },
         http: {
-            port: 8000,
-            mediaroot: '../media_server.js',
+            port: 8888,
+            mediaroot: './config/media',
             allow_origin: '*'
         },
         trans: {
