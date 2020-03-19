@@ -73,25 +73,11 @@ const Identity = (prop) => (
                 </div>
             </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 <div className = "panel rounded border-bottom">
                     <div className = "panel-body">
                         
                         <img className = "img-thumbnail rounded" id = "image" src = {prop.image} key = {prop.image}></img>
-                        {prop.name}
+                        <h3 className = "NAME">{prop.name}</h3>
 
                         
                         <div className = "icons">
@@ -172,28 +158,28 @@ const Identity = (prop) => (
                 </div>
 
 
-                {/* <ul class="cookingHistory border" >
-                        <h2 className = "border-bottom">Favorite Recipes  
+                <ul class="cookingHistory border" >
+                        <h2 className = "border-bottom">Signature Recipes  
                             <button class="btn" type="submit" id = "recipeAdd" onClick = {prop.recipeAddClick}>
                                 <i class="far fa-plus-square"></i>
                             </button>
                         </h2>
                         <li class="list-group-item">
-                            <a href={prop.line1link}>{prop.line1}</a>
+                            <a href={prop.line1linkCH}>{prop.line1CH}</a>
                         </li>
                         <li class="list-group-item">
-                            <a href={prop.line2link}>{prop.line2}</a>
+                            <a href={prop.line2linkCH}>{prop.line2CH}</a>
                         </li>
                         <li class="list-group-item">
-                            <a href={prop.line3link}>{prop.line3}</a>  
+                            <a href={prop.line3linkCH}>{prop.line3CH}</a>  
                         </li>
                         <li class="list-group-item">
-                            <a href={prop.line4link}>{prop.line4}</a>
+                            <a href={prop.line4linkCH}>{prop.line4CH}</a>
                         </li>
                         <li class="list-group-item">
-                            <a href={prop.line5link}>{prop.line5}</a>
+                            <a href={prop.line5linkCH}>{prop.line5CH}</a>
                         </li>
-                    </ul> */}
+                    </ul>
 
                 
 

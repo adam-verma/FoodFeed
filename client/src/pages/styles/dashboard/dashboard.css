@@ -89,7 +89,9 @@
     order: 1;
 }
 .cookingHistory{
+    display: inline-block;
     order: 4;
+    margin: 10px;
     
 }
 .sidebar{
@@ -151,9 +153,9 @@ ul{
     
 }
 #editProfile{
-    position: relative;
+    position: absolute;
     bottom: 0;
-    left: 1%;
+    right: 120px;
 
 }
 
@@ -172,13 +174,15 @@ p{
     margin: 5px;
 }
 h2{
+    display: absolute;
     font-size: 27px;
 }
 #recipeAdd{
-    position: relative;
-    left: 16.5%;
-    padding: 3px;
-    margin: 0;
+    float: right;
+    margin-top: -8px;
+    
+    padding: 0px;
+    
     font-size: 27px;
     background-color: rgba(175, 175, 175, 0);
     color: rgb(77, 77, 77);
@@ -189,7 +193,10 @@ h2{
     right: 0;
     background-color: rgb(54, 226, 1);
 }
-
+.NAME{
+    font-size: 44px;
+    display:inline;
+}
 
 
 
