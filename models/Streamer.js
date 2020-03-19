@@ -14,6 +14,10 @@ const StreamerSchema = new Schema({
     type: String,
     required: true
   },
+  streamKey: {
+    type: String,
+    required: true,
+  },
   date: {
     type: Date,
     default: Date.now

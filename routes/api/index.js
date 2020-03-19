@@ -1,5 +1,7 @@
-const router = require("express").Router();
-const streamers = require("./Viewer.js");
-// matches with api/streamers
-router.use("/streamers", streamers);
-module.exports = router;
+const router = require("express").Router(); 
+const StreamerRoutes = require("./streams");
+
+// Streamer routes
+router.use("/streams", StreamerRoutes);
+
+module.exports = router; 
