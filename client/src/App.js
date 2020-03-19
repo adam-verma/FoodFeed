@@ -57,7 +57,7 @@ return (
       <Route exact path ='/Login'  component={Login} /> 
       <Route  exact path="/recipes" component={Recipes} />
       <Route path = "/chat" component = {ChatRoom} />
-      <Route exact = "/profile" component = {Dashboard} />
+      <Route exact path = "/profile" component = {Dashboard} />
        <Route exact path = "/settings" component = {Settings} />
    </Router>
 

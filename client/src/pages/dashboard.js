@@ -50,6 +50,14 @@ const Dashboard = () => {
                 // line3link = {}
                 // line4link = {}
                 // line5link = {}
+                image1 = {"https://via.placeholder.com/50"}
+                image2 = {"https://via.placeholder.com/50"}
+                image3 = {"https://via.placeholder.com/50"}
+                image4 = {"https://via.placeholder.com/50"}
+                image5 = {"https://via.placeholder.com/50"}
+
+
+
 
                 
             />

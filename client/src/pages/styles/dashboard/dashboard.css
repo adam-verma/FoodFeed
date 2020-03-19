@@ -47,15 +47,15 @@
     color: black;
     margin-bottom: 0;
     padding: 10px;
-
+    
 
 
     /* TODO: REMOVE THIS SECTION OF PROFILE LATER DAN */
     font-weight: 600;
 }
 
-.div2half{
-    
+.icons{
+    position: relative;
 }
 
 
@@ -70,19 +70,67 @@
     display: flex;
 }
 .favoriteRecipes{
+    align-items: center;
+    justify-content: center;
     font-size: 16px !important;
-    order: 2;
-    flex: 1;
+    order: 3;
+    flex: 2;
 }
 #aboutme{
     order: 1;
-    flex: 2;
-
+    flex: 3;
+    margin: 0;
 
     min-height: 300px;
 
 }
+.streamSchedule{
+    flex: 1;
+    order: 1;
+}
+.cookingHistory{
+    order: 4;
+    
+}
+.sidebar{
+    
+    
 
+    float: left;
+    position: absolute;
+    max-height: 672px;
+    
+    
+    /* max-width: 100px;
+    min-width: 100px; */
+    top: 0;
+    left: -81px;
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden;
+    /* scroll-behavior: smooth; */
+    overflow: scroll;
+    background-color: rgb(142, 0, 224);
+    
+
+}
+.circleImage{
+    border-radius: 1000px;
+    border-color: black;
+    border-width: 20px;
+    display: block;
+    margin-bottom: 10px;
+    border-color: rgb(0, 0, 0);
+}
+
+
+
+
+
+ul{
+    margin: 0;
+    padding: 10px;
+}
 
 
 
@@ -104,6 +152,7 @@
 }
 #editProfile{
     position: relative;
+    bottom: 0;
     left: 1%;
 
 }
@@ -122,3 +171,49 @@
 p{
     margin: 5px;
 }
+h2{
+    font-size: 27px;
+}
+#recipeAdd{
+    position: relative;
+    left: 16.5%;
+    padding: 3px;
+    margin: 0;
+    font-size: 27px;
+    background-color: rgba(175, 175, 175, 0);
+    color: rgb(77, 77, 77);
+}
+#cartCheckout{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: rgb(54, 226, 1);
+}
+
+
+
+
+
+
+
+
+/* //////////////////////////////////////////////////////// */
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
