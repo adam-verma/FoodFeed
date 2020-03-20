@@ -1,14 +1,16 @@
-
+import JumboSub from "../components/Jumbotron/aboutSub"
 import React  from "react";
 // import Navbar from "../components/NavBar-Start/index"
-// import Jumbotron from "../components"
+import Jumbotron from "../components/Jumbotron/about"
 // import LoginForm from "../components/Login/index"
 import SignUpForm from "../components/Signup/index"
-const Signup = () => {
+const About = () => {
 
     return (
         <React.Fragment>
-            <SignUpForm/>
+            <Jumbotron/>
+                <JumboSub/>
+
         </React.Fragment>
     
     )
@@ -17,4 +19,4 @@ const Signup = () => {
 }
 
 
-export default Signup
+export default About

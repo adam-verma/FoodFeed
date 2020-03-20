@@ -24,10 +24,7 @@ UserSchema.methods.generateStreamKey = () => {
 };
  
  
-module.exports = UserSchema;
-
-
-
+module.exports = mongoose.model('User', UserSchema); 
 
 
 
