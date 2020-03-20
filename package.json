@@ -4,6 +4,9 @@
   "description": "A MERN app that connects viewers to livestream cooking channels",
   "main": "server.js",
   "dependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/preset-react": "^7.8.3",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.19.0",
     "bootstrap": "^4.4.1",
