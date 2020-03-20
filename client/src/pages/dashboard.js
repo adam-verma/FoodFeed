@@ -2,7 +2,11 @@ import React from "react";
 import "../pages/styles/dashboard/dashboard.css";
 
 import Identity from "../components/ProfileGroup/identity.js";
-import Modal from "../components/ModalGroup/modal.js";
+// import Modal from "../components/ModalGroup/modal.js";
+
+
+import "bootstrap/dist/css/bootstrap.min.css";
+
 
 const Dashboard = () => {
 
@@ -28,6 +32,7 @@ const Dashboard = () => {
 
 
     return(
+        <React.Fragment>
         <>
 
             <Identity
@@ -79,22 +84,18 @@ const Dashboard = () => {
 
 
             />
-            <Modal
-                Title = {"Cart/Checkout"}
-                modalBody = {"HEY HI WHATS UP! THATS A FINE ASS BODY YOU HAVE!"}
-            
-            />
-
-
-
-
-
         </>
-
-
-
-
         
+        <Modal/>
+
+
+
+
+
+
+
+
+        </React.Fragment>
     )
 }
 
