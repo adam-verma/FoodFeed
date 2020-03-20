@@ -20,7 +20,7 @@ const viewer = require("./routes/api/Viewer");
 const User = require("./routes/api/user");
 const Stream = require("./routes/api/streams");
 const passport = require("./config/passport");
-
+const apiRoutes = require("./routes/api/recipes");
 const NodeMediaServer = require('./media_server.js');
 
 io.on("connection", (socket) => {
@@ -96,9 +96,11 @@ app.use("/api/streamers", viewer);
 app.use("/streams", Stream);
 
 app.use("/user", User);
+app.use('/api',apiRoutes )
 
 app.use('/login', require('./routes/login'));
 app.use('/signup', require('./routes/signup'));
+
 
 server.listen(PORT2, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT2}!`);

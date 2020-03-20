@@ -16,7 +16,7 @@ const media_config = {
             allow_origin: '*'
         },
         trans: {
-            ffmpeg: 'C:\Program Files\ffmpeg-20200315-c467328-win64-static\bin\ffmpeg.exe',   
+            ffmpeg: 'C:\Program Files\ffmpeg\bin\ffmpeg.exe',   
             tasks: [
                 {
                     app: 'live',
