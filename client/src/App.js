@@ -6,6 +6,7 @@ import "./App.css";
 import Start from "./pages/Start";
 import Login from "./pages/Login"
 import SignUp from "./pages/SignUp"
+import About from "./pages/About"
 // import NavBarStart from "./components/NavBar-Start/index"
 // import Home from "./pages/Home"
 import { Provider } from "react-redux";
@@ -57,6 +58,8 @@ return (
       <Route exact path ='/Login'  component={Login} /> 
       <Route  exact path="/recipes" component={Recipes} />
       <Route path = "/chat" component = {ChatRoom} />
+       <Route exact path = "/settings" component = {Settings} />
+       <Route exact path = "/about" component = {About}/>
       <Route path = "/streams/:username" render = {(props) => (<VideoPlayer {...props} />)} />
       <Route exact path = "/settings" component = {Settings} />
       <Switch>
