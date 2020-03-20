@@ -3,27 +3,6 @@
   "version": "1.0.0",
   "description": "A MERN app that connects viewers to livestream cooking channels",
   "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-    "start:prod": "node server.js",
-    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
-    "client": "cd client && npm run start",
-    "seed": "node scripts/seedDB.js",
-    "install": "cd client && npm install",
-    "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/adam-verma/FoodFeed.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/adam-verma/FoodFeed/issues"
-  },
-  "homepage": "https://github.com/adam-verma/FoodFeed#readme",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.19.0",
@@ -36,6 +15,7 @@
     "is-empty": "^1.2.0",
     "jso": "^4.1.1",
     "jsonwebtoken": "^8.5.1",
+    "node-media-server": "^2.1.6",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "react": "^16.13.0",
@@ -45,8 +25,7 @@
     "redux-devtools": "^3.5.0",
     "session-file-store": "^1.4.0",
     "shortid": "^2.2.15",
-    "validator": "^12.2.0",
-    "video-react": "^0.14.1"
+    "validator": "^12.2.0"
   },
   "devDependencies": {
     "axios": "^0.19.2",
@@ -70,5 +49,26 @@
     "session-file-store": "^1.4.0",
     "socket.io": "^2.3.0",
     "socket.io-client": "^2.3.0"
-  }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "seed": "node scripts/seedDB.js",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adam-verma/FoodFeed.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adam-verma/FoodFeed/issues"
+  },
+  "homepage": "https://github.com/adam-verma/FoodFeed#readme"
 }
