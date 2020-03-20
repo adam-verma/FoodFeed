@@ -19,7 +19,7 @@ const viewers = require("./routes/api/viewers");
 const viewer = require("./routes/api/Viewer");
 const User = require("./routes/api/user");
 const Stream = require("./routes/api/streams");
-const passport = require("passport");
+const passport = require("./config/passport");
 
 const NodeMediaServer = require('./media_server.js');
 
@@ -84,6 +84,7 @@ app.use(flash());
 
 // Passport middleware
 app.use(passport.initialize());
+app.use(passport.session());
 // Passport config
 require("./config/passport");
 
@@ -95,6 +96,9 @@ app.use("/api/streamers", viewer);
 app.use("/streams", Stream);
 
 app.use("/user", User);
+
+app.use('/login', require('./routes/login'));
+app.use('/signup', require('./routes/signup'));
 
 server.listen(PORT2, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT2}!`);

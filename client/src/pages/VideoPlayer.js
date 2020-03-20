@@ -1,74 +1,63 @@
-import React, {useState, useEffect} from "react";
-// import VideoPlayer from "../components/VideoPlayer";
-import { Col, Row, Container} from "../components/Grid";
-import videojs from "video.js"
-import config from "../../../config/media_config"
-import API from "../utils/API"
-
-
-const VideoPlayer = () => {
-const [video, setVideo] = useState({
-    stream: false, 
-    videoJsOptions: null
-})
-
-useEffect(() => { 
-    loadvideo();
-    const player = videojs(videoNode, videoJsOptions, function onPlayerReady() {
-        console.log('onPlayerReady', video, 'Player', player);
-    });
-
-    return() => {
-        if (player) {
-            player.dispose();
-            console.log(player);
+import React from 'react';
+import videojs from 'video.js'
+import axios from 'axios';
+import config from '../config/default';
+ 
+ 
+export default class VideoPlayer extends React.Component {
+ 
+    constructor(props) {
+        super(props);
+ 
+        this.state = {
+            stream: false,
+            videoJsOptions: null
         }
     }
-}, []);
-
-// Load user video
-const loadvideo = async (props) => {
-    try {
-        const res = await API.getUser(props.match.params.username);
-        let streams = res.data; 
-        console.log(streams);
-        if (typeof (streams['live'] !== 'undefined')) {
-            API.getStreamInfo(streams['live']);
-        }
-        setVideo({ 
-            stream: true, 
-            videoJsOptions: {
-                autoplay: false,
-                controls: true,
-                sources: [{
-                    src: `http://127.0.0.1:${config.rtmp_server.http.port}/live/${res.data.videoKey}/index.m3u8`,
-                    type: 'application/x-mpegURL'
-                }],
-                fluid: true,
+ 
+    componentDidMount() {
+ 
+        axios.get('/user', {
+            params: {
+                username: this.props.match.params.username
             }
-        });
-
-       
-    } catch(err) {
-        console.group("LOAD video");
-        console.log(err);
-        console.groupEnd(); 
+        }).then(res => {
+            this.setState({
+                stream: true,
+                videoJsOptions: {
+                    autoplay: false,
+                    controls: true,
+                    sources: [{
+                        src: 'http://127.0.0.1:' + config.rtmp_server.http.port + '/live/' + res.data.stream_key + '/index.m3u8',
+                        type: 'application/x-mpegURL'
+                    }],
+                    fluid: true,
+                }
+            }, () => {
+                this.player = videojs(this.videoNode, this.state.videoJsOptions, function onPlayerReady() {
+                    console.log('onPlayerReady', this)
+                });
+            });
+        })
     }
-};
-
-return (
-    <Row>
-        <Col size="xs-12 sm-12 md-10 lg-8">
-            {stream ? (
-                <div data-vjs-player>
-                    <video ref={node => videoNode = node} className = "video-js vjs-big-play-centered"/>
+ 
+    componentWillUnmount() {
+        if (this.player) {
+            this.player.dispose()
+        }
+    }
+ 
+    render() {
+        return (
+            <div className="row">
+                <div className="col-xs-12 col-sm-12 col-md-10 col-lg-8 mx-auto mt-5">
+                    {this.state.stream ? (
+                        <div data-vjs-player>
+                            <video ref={node => this.videoNode = node} className="video-js vjs-big-play-centered"/>
+                        </div>
+                    ) : ' Loading ... '}
                 </div>
-            ) : 'Loading...'}
-        </Col>
-
-    </Row> 
-)
-
+            </div>
+        )
+    }
 }
-    
-export default VideoPlayer;

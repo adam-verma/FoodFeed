@@ -8,7 +8,7 @@ const Signup = () => {
 
     return (
         <React.Fragment>
-            <SignUpForm></SignUpForm>
+            <SignUpForm/>
         </React.Fragment>
     
     )
