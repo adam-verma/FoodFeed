@@ -1,35 +1,29 @@
 import React from "react";
-import Modal from "react-bootstrap/Modal";
+import "../../pages/styles/dashboard/dashboard.css";
 
-const Modal = () => {
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-  
-    return (
-      <div>
-        <h1>Manage Users</h1>
-        <Button variant="outline-dark" onClick={handleShow}>
-          Add new user
-        </Button>
-        <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Add User</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <NewUserForm />
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
-            </Button>
-            <Button variant="primary" onClick={handleClose}>
-              Save Changes
-            </Button>
-          </Modal.Footer>
-        </Modal>
+
+
+
+const Modal = (props) => (
+    <div class="modal" id = "Modal1" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document" id = "documentModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{props.title}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onClick = {props.closeClick}>
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-    );
-  }
-  
-  export default Modal;
+      <div class="modal-body">
+        <p>{props.body}</p>
+      </div>
+      <div class="modal-footer">
+        
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick = {props.closeClick}>Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+)
+export default Modal;

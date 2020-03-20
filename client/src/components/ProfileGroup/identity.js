@@ -5,32 +5,7 @@ const Identity = (prop) => (
         <div className = "div1">
             <img className = "img coverPhoto" id = "coverPhoto" src = {prop.coverImage} key = {prop.coverImage}></img>
         </div>
-        {/* <div className = "sidebar">
-            <ul class="following border" >
-                <h2 className = "border-bottom">
-                
-                </h2>
-                <li class="list-group-item">
-                    
-                </li>
-                <li class="list-group-item">
-                    
-                </li>
-                <li class="list-group-item">
-                    
-                </li>
-                <li class="list-group-item">
-                    
-                </li>
-                <li class="list-group-item">
-                    
-                </li>
-            </ul>
-        </div> */}
-
-
-
-
+        
         <div className = "div2 rounded">
             <div className = "profile">
 
@@ -78,6 +53,8 @@ const Identity = (prop) => (
                         
                         <img className = "img-thumbnail rounded" id = "image" src = {prop.image} key = {prop.image}></img>
                         <h3 className = "NAME">{prop.name}</h3>
+                        <p1>{prop.role}</p1>
+                        <p2>{prop.location}</p2>
 
                         
                         <div className = "icons">
@@ -111,13 +88,16 @@ const Identity = (prop) => (
 
                 <div className = "container-1">
                 <ul class="streamSchedule border" >
-                        <h2 className = "border-bottom">Stream Schedule</h2> 
-                        
-                    </ul>
-
-
-
-
+                    <h2 className = "border-bottom">Stream Schedule</h2> 
+                    <li>{prop.day1}</li><button className = "tokenLabel">{prop.timezone1}</button>
+                    <li>{prop.day2}</li><button className = "tokenLabel">{prop.timezone2}</button>
+                    <li>{prop.day3}</li><button className = "tokenLabel">{prop.timezone3}</button>
+                    <li>{prop.day4}</li><button className = "tokenLabel">{prop.timezone4}</button>
+                    <li>{prop.day5}</li><button className = "tokenLabel">{prop.timezone5}</button>
+                    <li>{prop.day6}</li><button className = "tokenLabel">{prop.timezone6}</button>
+                    <li>{prop.day7}</li><button className = "tokenLabel">{prop.timezone7}</button>
+                         
+                </ul>
 
 
                     <ul class="favoriteRecipes border" >
@@ -145,16 +125,13 @@ const Identity = (prop) => (
 
 
                     <div className = "panel2 rounded border" id = "aboutme">
-                        <div className = "panel-body"> 
+                        <div className = "aboutme"> 
                          
                         <h2 className = "border-bottom">About Me</h2>
                         <p>{prop.aboutMe}</p>
 
                         </div>
                     </div>
-                    
-                    <div className = "panel3 rounded border" ></div>
-
                 </div>
 
 
@@ -181,33 +158,8 @@ const Identity = (prop) => (
                         </li>
                     </ul>
 
-                
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             </div>
-            
-
-
-
-
-
-
         </div>
-
-
     </div>
 
 

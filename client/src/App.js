@@ -74,7 +74,7 @@ return (
   </React.Fragment>
   
 )}
-;
+
 
 export default App;
 
