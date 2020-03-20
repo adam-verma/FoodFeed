@@ -3,8 +3,6 @@ import to from 'await-to-js';
 import "./styles/settings/settings.css";
 
 import Notifications from "../components/SettingsGroup/notifications.js";
-
-
 import Securiprivacy from "../components/SettingsGroup/securiprivacy.js";
 import Geolocation from "../components/SettingsGroup/geolocation.js";
 import Account from "../components/SettingsGroup/account.js";
