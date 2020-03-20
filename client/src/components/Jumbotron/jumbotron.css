@@ -1,9 +1,10 @@
 .jumbotron{
 background:linear-gradient( to right, rgba(14, 195, 89, 0.822),rgba(26, 193, 193, 0.719));;
-
+text-align: center;
 }
 
 .jumbotronSub{
-    background: lightgray
-    
+    background: lightgray;
+    text-align: center;
+    color: black
     }
