@@ -26,6 +26,7 @@ import Settings from "./pages/settings.js";
 import profileDashboard from "./pages/dashboard.js";
 
 
+
 import LiveStream from "./pages/LiveStream";
 
 if (localStorage.jwtToken) {
@@ -57,6 +58,7 @@ return (
   <NavBarStart/>
    <Router>
       <Route exact path = "/" render = {(props) => (<LiveStream {...props} />)} />
+      <Route exact path = "/intro" component = {Start} />
       <Route exact path = "/SignUp" component = {SignUp} />
       <Route exact path ='/Login'  component={Login} /> 
       <Route  exact path="/recipes" component={Recipes} />
