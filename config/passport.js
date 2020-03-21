@@ -20,6 +20,7 @@ passport.use('localRegister', new LocalStrategy({
     },
     (req, email, password, done) => {
         db.User.findOne({$or: [{email: email}, {username: req.body.username}]},  (err, user) => {
+            console.log("ffff" + user)
             if (err)
                 return done(err);
             if (user) {
@@ -32,7 +33,8 @@ passport.use('localRegister', new LocalStrategy({
  
                 return done(null, false);
             } else {
-                let user = new User();
+                let user = new db.User();
+                console.log("mmm"+user)
                 user.email = email;
                 user.password = user.generateHash(password);
                 user.username = req.body.username;
@@ -54,7 +56,7 @@ passport.use('localLogin', new LocalStrategy({
     },
     (req, email, password, done) => {
  
-        User.findOne({'email': email}, (err, user) => {
+        db.User.findOne({'email': email}, (err, user) => {
             if (err)
                 return done(err);
  
