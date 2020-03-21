@@ -93,8 +93,9 @@ app.use("/api/viewers", viewers);
 
 app.use("/api/streamers", viewer);
 
-app.use("/streams", Stream);
-
+// app.use("/streams", Stream);
+app.use('/streams', require('./routes/api/streams'));
+app.use('/settings', require('./routes/api/setting'));
 app.use("/user", User);
 app.use('/api',apiRoutes )
 
