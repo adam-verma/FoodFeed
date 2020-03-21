@@ -1,9 +1,32 @@
 .jumbotron{
-background:linear-gradient( to right, rgba(14, 195, 89, 0.822),rgba(26, 193, 193, 0.719));;
-
+background:linear-gradient( to right, rgba(14, 195, 89, 0.308),rgba(26, 193, 193, 0.719));;
+text-align: center;
+margin: 0;
+height:410px
 }
 
 .jumbotronSub{
-    background: lightgray
-    
+    background: lightgray;
+    text-align: center;
+    color: black;
+    height:500px
+    }
+
+    #chefy{
+        width: 200px;
+    }
+
+    .hungry{
+        font-size: 30px;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    }
+
+    .recJum{
+        background: rgba(255, 235, 205, 0);
+    }
+
+
+    .devCard{
+        width: 22rem;
+
     }

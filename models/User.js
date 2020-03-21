@@ -1,10 +1,11 @@
 
 let mongoose = require('mongoose'),
     bcrypt   = require('bcryptjs'),
-    shortid = require('shortid'),
-    Schema = mongoose.Schema;
+    shortid = require('shortid')
+    
+ const Schema = mongoose.Schema;
  
-let UserSchema = new Schema({
+const UserSchema = new Schema({
     username: String,
     email : String,
     password: String,
@@ -24,7 +25,7 @@ UserSchema.methods.generateStreamKey = () => {
 };
  
  
-module.exports = mongoose.model('User', UserSchema); 
+module.exports = mongoose.model('user', UserSchema); 
 
 
 

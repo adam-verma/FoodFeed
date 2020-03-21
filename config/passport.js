@@ -21,6 +21,7 @@ passport.use('localRegister', new LocalStrategy({
     },
     (req, email, password, done) => {
         db.User.findOne({$or: [{email: email}, {username: req.body.username}]},  (err, user) => {
+            console.log("ffff" + user)
             if (err)
                 return done(err);
             if (user) {
@@ -33,8 +34,8 @@ passport.use('localRegister', new LocalStrategy({
  
                 return done(null, false);
             } else {
-                let user = new db.User;
-                console.log(user); 
+                let user = new db.User();
+                console.log("mmm"+user)
                 user.email = email;
                 user.password = user.generateHash(password);
                 user.username = req.body.username;

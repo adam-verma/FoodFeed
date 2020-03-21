@@ -1,14 +1,13 @@
-
 import React  from "react";
 // import Navbar from "../components/NavBar-Start/index"
 // import Jumbotron from "../components"
-import LiveStreams from "../components/LiveStreams/index"
+import VideoSettings from "../components/VideoSettings"
 
-const LiveStream = () => {
+const VideoSetting = () => {
 
     return (
         <React.Fragment>
-            <LiveStreams/>
+            <VideoSettings/>
         </React.Fragment>
     
     )
@@ -16,5 +15,4 @@ const LiveStream = () => {
 
 }
 
-
-export default LiveStream
+export default VideoSetting

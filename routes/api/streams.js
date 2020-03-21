@@ -1,19 +1,25 @@
-const express = require("express");
-const router =  express.Router();
-const StreamerController = require('../../controllers/UserController');
+const express = require('express'),
+    router = express.Router(),
+    db = require('../../models/index');
 
-// Matches with "/api/Streamer"
-router.get("/streams/info",
+router.get('/info',
     require('connect-ensure-login').ensureLoggedIn(),
     (req, res) => {
-        if (req.query.streams) {
+        if(req.query.streams){
             let streams = JSON.parse(req.query.streams);
-            let query = {$or : []};
+            let query = {$or: []};
             for (let stream in streams) {
                 if (!streams.hasOwnProperty(stream)) continue;
-                query.$or.push({stream_key: stream});
+                query.$or.push({stream_key : stream});
             }
-        StreamerController.find(req, res);
-};
-});
+
+           db.User.find(query,(err, users) => {
+                if (err)
+                    return;
+                if (users) {
+                    res.json(users);
+                }
+            });
+        }
+    });
 module.exports = router;
