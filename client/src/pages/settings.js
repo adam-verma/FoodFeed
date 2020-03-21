@@ -32,12 +32,12 @@ const Settings = (props) => {
 
     const loadStreamKey = async (props) => {
         const res = await API.getStreamKey();
-        setKey({streamKey: res.data.streamKey})
+        setKey({streamKey: res.data.stream_key})
     }
     
     const postStreamKey = async (props) => {
         const res = await API.postStreamKey();
-        setKey({streamKey: res.data.streamKey})
+        setKey({streamKey: res.data.stream_key})
     }
     const locationHandler = async () => {
         const [dataError, data] = await to(GEOAPI.Locate());

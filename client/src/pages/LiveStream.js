@@ -2,7 +2,9 @@ import React, {useState, useEffect} from "react";
 // import LiveStream from "../components/LiveStreams";
 import { Link } from "react-router-dom";
 import { Col, Row, Container} from "../components/Grid";
-import API from "../utils/API"
+import API from "../utils/API";
+import axios from "axios"; 
+import config from "../config/media_config";
 
 const LiveStream = () => {
     // Setting our component's intial state 
@@ -12,11 +14,32 @@ const LiveStream = () => {
 
     useEffect(() => {
         loadLiveStream();
-    }, []);
+        loadStreamInfo();
+    });
 
     const loadLiveStream = async (props) => {
         try {
-            const res = await API.getLiveStream(props.match.params.streams);
+            axios.get('http://127.0.0.1:' + config.rtmp_server.http.port + '/api/streams')
+            .then(res => {
+                let streams = res.data;
+                if (typeof (streams['live'] !== 'undefined')) {
+                    loadStreamInfo(streams['live']);
+                }
+            });
+        } catch (err) { 
+            console.group("Load Live Stream");
+            console.log(err);
+            console.groupEnd();
+        }
+    }
+    
+    const loadStreamInfo = async (live_streams) => {
+        try {
+            const res = await API.getStreamInfo({
+                params: {
+                    streams: live_streams
+                }
+            })
             setStream({live_streams: res.data})
             console.log(streams);
         } catch (err) { 
@@ -25,7 +48,7 @@ const LiveStream = () => {
             console.groupEnd();
         }
     }
-    
+
     return (
         <Container fluid> 
             <h4>Live Streams</h4>

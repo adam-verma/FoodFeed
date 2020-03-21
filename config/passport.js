@@ -1,7 +1,8 @@
 const passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy,
     shortid = require('shortid'),
-    db = require('../models')
+    db = require('../models');
+
     
  
 passport.serializeUser( (user, cb) => {
@@ -32,7 +33,8 @@ passport.use('localRegister', new LocalStrategy({
  
                 return done(null, false);
             } else {
-                let user = new User();
+                let user = new db.User;
+                console.log(user); 
                 user.email = email;
                 user.password = user.generateHash(password);
                 user.username = req.body.username;
@@ -54,7 +56,7 @@ passport.use('localLogin', new LocalStrategy({
     },
     (req, email, password, done) => {
  
-        User.findOne({'email': email}, (err, user) => {
+        db.User.findOne({'email': email}, (err, user) => {
             if (err)
                 return done(err);
  
