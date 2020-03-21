@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import API from '../utils/recipeApi'
 import { RecipeList, RecipeListItem } from "../components/List/RecipeList";
 // import "./styles/settings/style.css";
-
+import RecJum from "../components/Jumbotron/recipeJumbo"
 const Recipes = () => {
     const [recipes, setRecipes] = useState([]);
     const [recipeSearch, setRecipeSearch ]= useState("");
@@ -35,27 +35,10 @@ const Recipes = () => {
 
 
 <React.Fragment>    
-    <div className="container"  id="containme">
-<div className='row navy'>    
-<nav class="navbar navbar-expand-lg navbar-light bg-light" id="navy">
-  <a class="navbar-brand" href="#"> <h1 id="text"><i class="fas fa-carrot"> </i>Recipes <i class="fas fa-apple-alt"></i> </h1></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse col-md-2" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Browse
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-  <form class="form-inline my-2 my-lg-0 col-md-6 "  id="recipeSearch">
+<RecJum/>
+    <div  id="containme" className="row">
+<ul>
+  <form class="form-inline my-2 my-lg-0 col-md-12 "  id="recipeSearch">
       <input name="recipeSearch"
             value={recipeSearch}
              onChange={handleInputChange}
@@ -65,7 +48,7 @@ const Recipes = () => {
        <button 
             onClick={handleFormSubmit}
             type="success"
-            className="btn btn-primary col-md-6"
+            className="btn btn-primary col-md-12"
             id="recBtn"
         > Search
          </button>
@@ -73,11 +56,12 @@ const Recipes = () => {
     </ul>
     
   </div>
-</nav>
-</div> 
-        
-<div className ="row">
-          <div className="">
+
+
+
+
+
+          <div>
             <div className="mainCon1">
               <form action="/recipes" method="post">
                 <div>
@@ -113,8 +97,8 @@ const Recipes = () => {
             </div>
           </div>
     
-      </div>
-    </div>
+      
+    
       </React.Fragment>
     );
   }
