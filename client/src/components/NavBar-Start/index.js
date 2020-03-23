@@ -21,17 +21,23 @@ function Navbar(props) {
           <a  className="nav-link" href="/Recipes"><i class="fas fa-utensils"> Recipes</i></a>
           </li>
           
+          <li className="nav-item ">
+          <a  className="nav-link" href="/about"><i class="fas fa-smile-wink"> About Us</i></a>
+          </li>
+
           <img src={Logo} alt ="Logo" className="Logo"/>
 
           <li className="nav-item ">
-          <a  className="nav-link" href="/about"><i class="fas fa-smile-wink"> About Us</i></a>
+          <a  className="nav-link" href="/contact"><i class="fas fa-envelope-open"> Contact</i></a>
           </li>
 
           <li className="nav-item ">
           <a  className="nav-link" href="/apply"><i class="fas fa-clipboard"> Apply!</i></a>
           </li>
 
-        
+          <li className="nav-item ">
+          <a  className="nav-link" href="/downloads"><i class="fas fa-download"> Downloads</i></a>
+          </li>
 
       </ul>
     

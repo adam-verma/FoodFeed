@@ -2,9 +2,9 @@ import React, { useState, useEffect}     from "react";
 import ReactDOM from 'react-dom';
 
 import Pad from "../components/Pad/Pad.js";
-import cfs1 from "../media/video/cfs1.mp4";
-import cfs2 from "../media/video/cfs2.mp4";
-import cfs3 from "../media/video/cfs3.mp4";
+import cfs1 from "../media/video/cfs1.m4v";
+import cfs2 from "../media/video/Cfs2.m4v";
+import cfs3 from "../media/video/Cfs3.m4v";
 import Register from "../components/Signup/index.js";
 
 import "../pages/styles/start/start.css";

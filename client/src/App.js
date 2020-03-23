@@ -28,6 +28,8 @@ import profileDashboard from "./pages/dashboard.js";
 
 
 import LiveStream from "./pages/LiveStream";
+import LiveStream from "./pages/LiveStream"
+import VideoSettings from "./pages/VideoSettings";
 
 if (localStorage.jwtToken) {
   // Set auth token header auth
@@ -57,8 +59,9 @@ return (
 <React.Fragment>
   <NavBarStart/>
    <Router>
-      <Route exact path = "/" render = {(props) => (<LiveStream {...props} />)} />
+      
       <Route exact path = "/intro" component = {Start} />
+      <Route exact path = "/" component = {LiveStream} />
       <Route exact path = "/SignUp" component = {SignUp} />
       <Route exact path ='/Login'  component={Login} /> 
       <Route  exact path="/recipes" component={Recipes} />
@@ -67,8 +70,8 @@ return (
       
        <Route exact path = "/settings" component = {Settings} />
        <Route exact path = "/about" component = {About}/>
-      <Route path = "/streams/:username" render = {(props) => (<VideoPlayer {...props} />)} />
-      
+      <Route path = "/streams/:username" component = {VideoPlayer} />
+      <Route exact path = "/VideoSettings" component = {VideoSettings} />
       <Switch>
         <PrivateRoute exact path="/dashboard" component={Dashboard} />
       </Switch>
