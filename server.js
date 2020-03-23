@@ -76,7 +76,7 @@ app.use(
 
 app.use(bodyParser.json());
 
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/foodfeed";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://mongo:27017/foodfeed";
 // Connect to Mongo DB
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true }, err => { if(err) { console.log(err); }}).
 then(() => console.log("MONGO DATABASE CONNECTED"));
