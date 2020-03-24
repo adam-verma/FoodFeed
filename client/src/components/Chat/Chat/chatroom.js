@@ -13,8 +13,9 @@ if (process.env.NODE_ENV !== 'production') {
     ENDPOINT = "http://localhost:3002";
 };
 
-
-const ChatRoom = ({}) => {
+const socketv = io("http://localhost:3002")
+const ChatRoom = () => {
+    
     const [name, setName] = useState("");
     const [room, setRoom] = useState("");
     
@@ -22,20 +23,29 @@ const ChatRoom = ({}) => {
     const [messages, setMessages] = useState([]);
 
     const [messagebroad, setMessagebroad] = useState("");
-    const [messagesbroad, setMessagesbroad] = useState(["bra"]);
+    const [messagesbroad, setMessagesbroad] = useState([]);
 
 
-    const socket = io.connect(ENDPOINT);
+    
+    
     // const streamRoom = queryString.parse(location.search);
     const streamRoom = window.location.href;
 
 
     useEffect(() => {
         
-        const socket = io(ENDPOINT);
+
+
+        async function connect () {
+            const socket = io.connect("http://localhost:3002");
+         }
+        connect();
         
-        socket.on("join", streamRoom => {
+        
+        socketv.on("join", streamRoom => {
             console.log(streamRoom);
+
+            socketv.off('join', streamRoom);  
         });
 
         // setName(name);
@@ -43,22 +53,28 @@ const ChatRoom = ({}) => {
         
         
 
-        // return () => {
-        //     socket.emit("disconnect");
-        //     socket.off();
-        // }
+        return () => {
+            socketv.emit("disconnect");
+            socketv.off();
+        }
 
     },[streamRoom]);
 
 
     
-    socket.on("chatMessage", (message) =>{
-
+    socketv.on("chatMessage", (massage) =>{
+        setMessagesbroad([massage])
         
-            setMessagesbroad(oldValue =>
-                 [...oldValue, message]
-            )
-              console.log(messages);
+        
+        
+        console.log(messagesbroad);
+            
+        
+       
+
+        const element = document.getElementById("chatIner");
+        element.scrollTop = element.scrollHeight;
+        
     })
 
     
@@ -67,15 +83,14 @@ const ChatRoom = ({}) => {
     const sendMessage = (event) => {
         
         if(message) {
-
-            socket.emit("sendMessage", message)
+            socketv.emit("sendMessage", message)
             setMessage("")
             setMessages(oldValue =>
                  [...oldValue, message]
             )
               console.log(messages); 
         }
-
+        
         console.log(message);
     }
     
@@ -100,30 +115,23 @@ const ChatRoom = ({}) => {
                         <div className = "Title" align="center"><h1>Chat</h1></div>
                         <div className=" chatinner rounded-bottom border border-white " id = "chatIner" style = {{backgroundColor: "#FAFAFA"}}>
                             <ScrollToBottom>
-                                <Inline username = {"Cartman"} message = {"HEY"}/>
-                                <Inline username = {"Kyle"} message = {"What do you want fat-ass?"}/>
-                                <Inline username = {"Cartman"} message = {"Shut-up jewboy!"}/>
-                                <Inline username = {"Kyle"} message = {"Screw you fatboy!"}/>
-                                <Inline username = {"Cartman"} message = {"HEY"}/>
-                                <Inline username = {"Kyle"} message = {"What do you want fat-ass?"}/>
-                                <Inline username = {"Cartman"} message = {"Shut-up jewboy!"}/>
-                                <Inline username = {"Kyle"} message = {"Screw you fatboy!"}/>
-                                <Inline username = {"Cartman"} message = {"HEY"}/>
-                                <Inline username = {"Kyle"} message = {"What do you want fat-ass?"}/>
-                                <Inline username = {"Cartman"} message = {"Shut-up jewboy!"}/>
-                                <Inline username = {"Cartman"} message = {"HEY"}/>
-                                <Inline username = {"Kyle"} message = {"What do you want fat-ass?"}/>
-                                <Inline username = {"Cartman"} message = {"Shut-up jewboy!"}/>
-                                <Inline username = {"Kyle"} message = {"Screw you fatboy!"}/>
+                                <Inline username = {"Cartman"} message = {"Hey I'm your biggest fan!"}/>
+                                <Inline username = {"Kyle"} message = {"oh em geee, it's streamerman!"}/>
+                                <Inline username = {"Kenny"} message = {"MhmhmnngngHMMHMM"}/>
+                                <Inline username = {"Randy Marsh"} message = {"OHMYGAWLITSGORDONRAM SEY!!!"}/>
+                                <Inline username = {"Stan"} message = {"Beef Wellington"}/>
+                                <Inline username = {"Randy Marsh"} message = {"Creme Fraiche!"}/>
                                 
-                                <Inline username = {"Kyle"} message = {"Screw you fatboy!"}/>
-                                {messages.map((result, i) =>(
 
+                                {messagesbroad.map((result, i) =>(
+                                    
                                     <Inline username = {"Stan"} message ={result}  key = {i}/>
                                 ))}
 
-                                {messagesbroad.map((result, i) =>(
-                                    <Inline username = {"KENNY"} message ={result}  key = {i}/>
+
+                                {messages.map((result, i) =>(
+                                    
+                                    <Inline username = {"User"} message ={result}  key = {i}/>
                                 ))}
 
                             </ScrollToBottom>

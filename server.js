@@ -25,12 +25,12 @@ const NodeMediaServer = require('./media_server.js');
 
 io.on("connection", (socket) => {
 
-  console.log("A USER CONNECTED!");
+  console.log(socket.id);
   socket.emit("join", "HEY")
   
-
   socket.on("disconnect", () => {
     console.log("A USER DISCONNECTED")
+    socket.removeAllListeners(streamRoom);
   })
 
   socket.emit("join", (msg, callback ) =>{
@@ -40,9 +40,6 @@ io.on("connection", (socket) => {
 
   })
 
-
-
-
   socket.on("sendMessage", message =>{
     
     console.log(message);
@@ -50,6 +47,9 @@ io.on("connection", (socket) => {
     
     
   })
+
+
+
 
 });
 
