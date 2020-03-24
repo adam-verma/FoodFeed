@@ -28,7 +28,7 @@ import profileDashboard from "./pages/dashboard.js";
 
 
 import LiveStream from "./pages/LiveStream";
-import LiveStream from "./pages/LiveStream"
+
 import VideoSettings from "./pages/VideoSettings";
 
 if (localStorage.jwtToken) {

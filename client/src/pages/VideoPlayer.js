@@ -2,8 +2,8 @@ import React from 'react';
 import videojs from 'video.js'
 import axios from 'axios';
 import config from '../config/default';
- 
- 
+import Chatroom from "../components/Chat/Chat/chatroom.js";
+import "../pages/styles/VideoPlayer/videoplayer.css";
 export default class VideoPlayer extends React.Component {
  
     constructor(props) {
@@ -49,15 +49,17 @@ export default class VideoPlayer extends React.Component {
  
     render() {
         return (
-            <div className="row">
-                <div className="col-xs-12 col-sm-12 col-md-10 col-lg-8 mx-auto mt-5">
+            <div className="row" id = "videoWindow">
+                <div className="col-xs-12 col-sm-12 col-md-10 col-lg-8" id = "videocontain">
                     {this.state.stream ? (
                         <div data-vjs-player>
                             <video ref={node => this.videoNode = node} className="video-js vjs-big-play-centered"/>
                         </div>
                     ) : ' Loading ... '}
                 </div>
+                <Chatroom/>
             </div>
+            
         )
     }
 }

@@ -1,0 +1,90 @@
+#videoWindow{
+    min-height: calc(100vh - 173px);
+    min-width: 100vw;
+    display: grid;
+
+    grid-template-columns: 5% 75% 20%;
+    
+    grid-template-areas:
+    "space video chat";
+}
+
+
+
+#videocontain{
+    grid-area: video;
+    
+    
+}
+
+.outer, .sideb{
+    min-height: 100%;
+    grid-area: chat;
+    background-color: #50D1B4;
+}
+.sideb{
+    border-radius: 5px 0px 0px 5px;
+    
+
+}
+
+.chat{
+    background-color: #50D1B4;
+    align-content: stretch;
+    word-wrap: break-word;
+    height: 100%;
+    min-height: 100%;
+    margin: 0;
+  
+}
+.chatinner{
+    
+    border-radius: 3px;
+    min-height: 650px;
+    max-height: 650px;
+    min-width: 100%;
+    margin: 0 auto;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+
+    
+}
+.inline-message{
+    color: black;
+    
+    font-family: "pragati", sans-serif;
+    font-weight: 600;
+    margin: 0;
+    padding: 5px;
+
+}
+
+
+.form-control{
+    margin: 0 auto;
+    background-color: #1E1E1E;
+    border-color: #1E1E1E;
+    min-width:100%;
+    max-width: 90%;
+    box-shadow: 1px 10px 44px 1px rgba(97, 235, 150, 0.507);
+    color: white;
+}
+.form-control:focus{
+    margin: 0 auto;
+    background-color: #1E1E1E;
+    border-color: #1E1E1E;
+    min-width:100%;
+    max-width: 90%;
+
+
+    transition-duration:  .3s;
+    box-shadow: 1px 1px 44px 1px rgba(97, 196, 235, 0.507);
+}
+h1{
+    font-family: 'Oxanium', cursive;
+    font-size: x-large;
+    
+    padding-top: 2%;
+}

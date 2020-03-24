@@ -3,7 +3,8 @@ import queryString from "query-string";
 import io from "socket.io-client";
 import ScrollToBottom from "react-scroll-to-bottom";
 import "./style.css";
-import Inline from "./inline.js"
+import Inline from "./inline.js";
+import "../../../pages/styles/VideoPlayer/videoplayer.css";
 
 let ENDPOINT;
 
@@ -12,77 +13,95 @@ if (process.env.NODE_ENV !== 'production') {
     ENDPOINT = "http://localhost:3002";
 };
 
-
-const ChatRoom = ({location}) => {
+const socketv = io("http://localhost:3002")
+const ChatRoom = () => {
+    
     const [name, setName] = useState("");
     const [room, setRoom] = useState("");
     
     const [message, setMessage] = useState("");
     const [messages, setMessages] = useState([]);
 
+    const [messagebroad, setMessagebroad] = useState("");
+    const [messagesbroad, setMessagesbroad] = useState([]);
 
 
-    const socket = io(ENDPOINT);
-    const streamRoom = queryString.parse(location.search);
-    // useEffect(() => {
+    
+    
+    // const streamRoom = queryString.parse(location.search);
+    const streamRoom = window.location.href;
+
+
+    useEffect(() => {
         
-    //     const socket = io(ENDPOINT);
-    //     const data = queryString.parse(location.search);
-    //     socket.on("chat message", data => {
-    //         console.log(data);
-    //     });
 
-    //     // setName(name);
-    //     // setRoom(room);
+
+        async function connect () {
+            const socket = io.connect("http://localhost:3002");
+         }
+        connect();
         
-    //     socket.emit("join",{}, ({msg}) => {
-    //         alert(msg);
-    //     });
+        
+        socketv.on("join", streamRoom => {
+            console.log(streamRoom);
 
-    //     return () => {
-    //         socket.emit("disconnect");
-    //         socket.off();
-    //     }
+            socketv.off('join', streamRoom);  
+        });
+
+        // setName(name);
+        // setRoom(room);
+        
+        
+
+        return () => {
+            socketv.emit("disconnect");
+            socketv.off();
+        }
+
+    },[streamRoom]);
 
 
-    // },[streamRoom]);
+    
+    socketv.on("chatMessage", (massage) =>{
+        setMessagesbroad([massage])
+        
+        
+        
+        console.log(messagesbroad);
+            
+        
+       
 
-    // useEffect(() =>{
-    //     socket.on("sendMessage", (message) =>{
+        const element = document.getElementById("chatIner");
+        element.scrollTop = element.scrollHeight;
+        
+    })
 
-    //         setMessage(message);
-    //     })
-
-
-
-
-    // }, [message]);
+    
 
 
     const sendMessage = (event) => {
         
         if(message) {
-
-
-
-            socket.emit("sendMessage", message)
+            socketv.emit("sendMessage", message)
             setMessage("")
             setMessages(oldValue =>
                  [...oldValue, message]
             )
               console.log(messages); 
-        
         }
-
-        console.log(message);
-
-
         
+        console.log(message);
     }
+    
 
 
+    // Auto-scrolling the div down on message
+    useEffect(() => {
+        const element = document.getElementById("chatIner");
+        element.scrollTop = element.scrollHeight;
 
-
+    }, [message]);
 
     return ( 
         <React.Fragment>
@@ -91,32 +110,30 @@ const ChatRoom = ({location}) => {
                     
                     
 
-                <div className="bg-dark sidebar" style = {{backgroundColor: "#1E1E1E"}}>
+                <div className="bg-dark sideb" style = {{backgroundColor: "#1E1E1E"}}>
                     <div className = "chat rounded-left fixed-right">
                         <div className = "Title" align="center"><h1>Chat</h1></div>
-                        <div className=" overflow-auto chatinner rounded-bottom border border-white " style = {{backgroundColor: "#FAFAFA"}}>
+                        <div className=" chatinner rounded-bottom border border-white " id = "chatIner" style = {{backgroundColor: "#FAFAFA"}}>
                             <ScrollToBottom>
-                                <Inline username = {"Cartman"} message = {"HEY"}/>
-                                <Inline username = {"Kyle"} message = {"What do you want fat-ass?"}/>
-                                <Inline username = {"Cartman"} message = {"Shut-up jewboy!"}/>
-                                <Inline username = {"Kyle"} message = {"Screw you fatboy!"}/>
-                                <Inline username = {"Cartman"} message = {"HEY"}/>
-                                <Inline username = {"Kyle"} message = {"What do you want fat-ass?"}/>
-                                <Inline username = {"Cartman"} message = {"Shut-up jewboy!"}/>
-                                <Inline username = {"Kyle"} message = {"Screw you fatboy!"}/>
-                                <Inline username = {"Cartman"} message = {"HEY"}/>
-                                <Inline username = {"Kyle"} message = {"What do you want fat-ass?"}/>
-                                <Inline username = {"Cartman"} message = {"Shut-up jewboy!"}/>
-                                <Inline username = {"Cartman"} message = {"HEY"}/>
-                                <Inline username = {"Kyle"} message = {"What do you want fat-ass?"}/>
-                                <Inline username = {"Cartman"} message = {"Shut-up jewboy!"}/>
-                                <Inline username = {"Kyle"} message = {"Screw you fatboy!"}/>
+                                <Inline username = {"Cartman"} message = {"Hey I'm your biggest fan!"}/>
+                                <Inline username = {"Kyle"} message = {"oh em geee, it's streamerman!"}/>
+                                <Inline username = {"Kenny"} message = {"MhmhmnngngHMMHMM"}/>
+                                <Inline username = {"Randy Marsh"} message = {"OHMYGAWLITSGORDONRAM SEY!!!"}/>
+                                <Inline username = {"Stan"} message = {"Beef Wellington"}/>
+                                <Inline username = {"Randy Marsh"} message = {"Creme Fraiche!"}/>
                                 
-                                <Inline username = {"Kyle"} message = {"Screw you fatboy!"}/>
-                                {messages.map((result) =>(
 
-                                    <Inline username = {"Stan"} message ={result} />
+                                {messagesbroad.map((result, i) =>(
+                                    
+                                    <Inline username = {"Stan"} message ={result}  key = {i}/>
                                 ))}
+
+
+                                {messages.map((result, i) =>(
+                                    
+                                    <Inline username = {"User"} message ={result}  key = {i}/>
+                                ))}
+
                             </ScrollToBottom>
 
 

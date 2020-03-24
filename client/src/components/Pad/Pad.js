@@ -18,7 +18,7 @@ const Pad = (props) =>(
                     <source className="d-block" src={props.video} alt="First"></source>
                 </video>
         </div>
-        <i className="fas fa-chevron-down" onClick = {props.click}></i>
+        <i className="cas fas fa-chevron-down" onClick = {props.click}></i>
     </div>
     
 )
