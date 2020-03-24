@@ -12,9 +12,6 @@ import GEOAPI from "../utils/geolocation/API.js";
 import KeyContainer from "../components/SettingsGroup/streamingkey";
 import streamGuide from "../components/SettingsGroup/streamGuide";
 
-// TODO:This is not a real import. This helps me follow a train of thought. REMOVE AFTER DONE.
-import MongooseData from "mongoose";
-
 
 const Settings = (props) => {
     
@@ -32,12 +29,12 @@ const Settings = (props) => {
 
     const loadStreamKey = async (props) => {
         const res = await API.getStreamKey();
-        setKey({streamKey: res.data.streamKey})
+        setKey({streamKey: res.data.stream_key})
     }
     
     const postStreamKey = async (props) => {
         const res = await API.postStreamKey();
-        setKey({streamKey: res.data.streamKey})
+        setKey({streamKey: res.data.stream_key})
     }
     const locationHandler = async () => {
         const [dataError, data] = await to(GEOAPI.Locate());

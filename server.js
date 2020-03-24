@@ -22,6 +22,7 @@ const Stream = require("./routes/api/streams");
 const passport = require("./config/passport");
 const apiRoutes = require("./routes/api/recipes");
 const NodeMediaServer = require('./media_server.js');
+const thumbnail_generator = require('./scripts/cron_thumbnails');
 
 io.on("connection", (socket) => {
 
@@ -113,3 +114,5 @@ app.listen(PORT, function() {
 });
 
 NodeMediaServer.run(); 
+
+thumbnail_generator.start();
