@@ -1,0 +1,27 @@
+
+
+
+.formSignup{
+    
+    display: grid;
+    
+    grid-template-rows: 90% 10%;
+    grid-template-columns: 26% auto;
+    
+    grid-template-areas:
+    " space register"
+    "elevate elevate";
+    margin-bottom: 50px;
+    margin-top: -11px;
+
+    
+    
+}
+
+
+form{
+    grid-area: register;
+    
+    
+    
+}

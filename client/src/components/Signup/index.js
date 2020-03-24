@@ -1,6 +1,6 @@
- 
 import React from "react";
-import Wave from  "../../Images/wave.png"
+import Wave from  "../../Images/wave.png";
+import "./signup.css";
 
 
 // The ...props means, spread all of the passed props onto this element
@@ -14,12 +14,12 @@ function Register(props) {
  
     <hr className="my-4" />
  
-    <div className="row">
+    <div className="formSignup" id = "row">
         <form action="/signup"
               method="post"
               >
  
-            <div className="form-group">
+            <div className="form-group" id = "formSignup">
                 <label>Username</label>
                 <input type="text" name="username" className="form-control" placeholder="Enter username" required />
               
@@ -27,7 +27,7 @@ function Register(props) {
                
             </div>
  
-            <div className="form-group">
+            <div className="form-group" id = "formSignup">
                 <label>Email address</label>
                 <input type="email" name="email" className="form-control" placeholder="Enter email" required/>
               
@@ -35,18 +35,18 @@ function Register(props) {
                 
             </div>
  
-            <div className="form-group">
+            <div className="form-group" id = "formSignup">
                 <label>Password</label>
                 <input type="password" name="password" className="form-control" placeholder="Password" required/>
             </div>
  
-            <div className="form-group">
+            <div className="form-group" id = "formSignup">
                 <div className="account">
                     Have an account? Login <a href="/login">here</a>.
                 </div>
             </div>
  
-            <button type="submit" className="btn btn-dark btn-block">Register</button>
+            <button type="submit" className="btn btn-dark btn-block" id = "formSignup">Register</button>
         </form>
     </div>
 </div>
