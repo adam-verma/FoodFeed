@@ -3,7 +3,6 @@ const passport = require('passport'),
     shortid = require('shortid'),
     db = require('../models');
 
-    
  
 passport.serializeUser( (user, cb) => {
     cb(null, user);
