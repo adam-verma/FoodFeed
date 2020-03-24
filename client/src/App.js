@@ -21,6 +21,11 @@ import Sign from "./components/Chat/index.js";
 import VideoPlayer from "./pages/VideoPlayer";
 import ChatRoom from "./components/Chat/Chat/chatroom.js";
 import Settings from "./pages/settings.js";
+import profileDashboard from "./pages/dashboard.js";
+
+
+
+import LiveStream from "./pages/LiveStream";
 import LiveStream from "./pages/LiveStream"
 import VideoSettings from "./pages/VideoSettings";
 
@@ -52,11 +57,15 @@ return (
 <React.Fragment>
   <NavBarStart/>
    <Router>
+      
+      <Route exact path = "/intro" component = {Start} />
       <Route exact path = "/" component = {LiveStream} />
       <Route exact path = "/SignUp" component = {SignUp} />
       <Route exact path ='/Login'  component={Login} /> 
       <Route  exact path="/recipes" component={Recipes} />
       <Route path = "/chat" component = {ChatRoom} />
+      <Route exact path = "/profile" component = {profileDashboard} />
+      
        <Route exact path = "/settings" component = {Settings} />
        <Route exact path = "/about" component = {About}/>
       <Route path = "/streams/:username" component = {VideoPlayer} />
@@ -71,7 +80,7 @@ return (
   </React.Fragment>
   
 )}
-;
+
 
 export default App;
 

@@ -1,0 +1,302 @@
+.supreme{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
+    height: 100%;
+    width: 100%;
+    
+    flex-direction: column;
+
+    
+    
+    
+}
+
+.div1{
+    position: relative;
+    left: 10%;
+    width: 100%;
+    padding: 10px;
+    
+}
+.div2{
+    position: relative;
+    left: 10%;
+    width: 100%;
+    height: 1000px;
+    
+}
+
+.fab{
+    position: relative;
+    left: -1%;
+
+    padding: 10px;
+    font-size: 2em;
+
+}
+
+
+
+
+
+
+
+
+
+.profile{
+    width: 1000px;
+    background-color: white;
+    color: black;
+    margin-bottom: 0;
+    padding: 10px;
+    
+
+
+    /* TODO: REMOVE THIS SECTION OF PROFILE LATER DAN */
+    font-weight: 600;
+}
+
+.icons{
+    position: relative;
+}
+
+
+
+
+
+
+
+
+
+.container-1{
+    display: flex;
+}
+.favoriteRecipes{
+    align-items: center;
+    justify-content: center;
+    font-size: 16px !important;
+    order: 3;
+    flex: 1;
+}
+#aboutme{
+    order: 1;
+    flex: 3;
+    margin: 0;
+
+    min-height: 300px;
+
+}
+.streamSchedule{
+    flex: 1;
+    order: 1;
+}
+.cookingHistory{
+    display: inline-block;
+    order: 4;
+    margin: 10px;
+    
+}
+.sidebar{
+    
+    
+
+    float: left;
+    position: absolute;
+    max-height: 672px;
+    
+    
+    /* max-width: 100px;
+    min-width: 100px; */
+    top: 0;
+    left: -81px;
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden;
+    /* scroll-behavior: smooth; */
+    overflow: scroll;
+    background-color: rgb(66, 66, 66);
+    
+
+}
+.circleImage{
+    border-radius: 1000px;
+    border-color: black;
+    border-width: 20px;
+    display: block;
+    margin-bottom: 10px;
+    border-color: rgb(0, 0, 0);
+    width: 50px;
+    height: 50px;
+}
+
+
+
+
+
+ul{
+    margin: 0;
+    padding: 10px;
+}
+
+#Modal1{
+    
+    background-color: rgba(0, 0, 0, 0.507);
+}
+#documentModal{
+    
+    -webkit-animation: slideIn 0.3s forwards;
+    -moz-animation: slideIn 0.3s forwards;
+    animation: slideIn 0.3s forwards;
+}
+@-webkit-keyframes slideIn {
+    0% {
+      transform: translateX(-900px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  @-moz-keyframes slideIn {
+    0% {
+      transform: translateX(-900px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  @keyframes slideIn {
+    0% {
+      transform: translateX(-900px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+
+.outgoin{
+    position: relative;
+}
+.incomin{
+    position: relative; 
+}
+#indicator{
+    position: relative;
+    bottom: 15px;
+    left: 300px;
+}
+
+
+
+
+
+
+  
+
+
+
+
+/* //////////////////////////////////////////////////////// */
+
+#image{
+    vertical-align: bottom;
+    width: 25%;
+    margin-right: 5px;
+}
+#coverPhoto{
+    width: 1000px;
+    
+}
+#editProfile{
+    position: absolute;
+    bottom: 0;
+    right: 120px;
+
+}
+
+
+
+.panel-body{
+    background-color: #CCCCCC;
+    margin: 5px;
+    border-radius: 10px;
+
+
+}
+
+
+
+p{
+    margin: 5px;
+}
+h2{
+    display: absolute;
+    font-size: 27px;
+}
+#recipeAdd{
+    float: right;
+    margin-top: -8px;
+    
+    padding: 0px;
+    
+    font-size: 27px;
+    background-color: rgba(175, 175, 175, 0);
+    color: rgb(77, 77, 77);
+}
+#cartCheckout{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: rgb(54, 226, 1);
+}
+.NAME{
+    font-size: 44px;
+    display:inline;
+}
+p1{
+    Margin-left: 4px;
+    font-size: 24px;
+}
+p2{
+    Margin-left: 9.5px;
+    display: inline-block;
+}
+.tokenLabel{
+    border-color: rgba(255, 255, 255, 0);
+    font-size: 12px;
+    border-radius: 500px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin: 0;
+    background-color: rgb(177, 177, 177);
+    color: rgb(255, 255, 255);
+    display: inline-block;
+}
+
+
+
+
+
+
+/* //////////////////////////////////////////////////////// */
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }

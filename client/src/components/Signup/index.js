@@ -9,7 +9,7 @@ function Register(props) {
   return (
 <React.Fragment>
     <img className="wave" src = {Wave}  alt="wave"/>
-    <div className="container app mt-5">
+    <div className="container app mt-5" key = {props.appendClass}>
     <h4>Register</h4>
  
     <hr className="my-4" />

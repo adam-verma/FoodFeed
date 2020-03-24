@@ -1,11 +1,14 @@
 
-body{
+body, html{
     color: white;
+    height:100%;
+    overflow: auto;
 }
 
 .outer{
-    width: 100vw;
-    height: 100vh;
+    width: calc(100vw - 10px);;
+    height: calc(100vh - 0px);
+    
     display: grid;
     grid-template-columns: 10% 65% 25%;
     grid-template-areas: "asdf video side-bar";
@@ -34,18 +37,23 @@ body{
     height: 100%;
     min-height: 100%;
     margin: 0 auto;
+    position: fixed;
+    
     
 
 }
 .chatinner{
+    
     border-radius: 3px;
     height: 85%;
-    min-height: 85%;
-    
-    min-width:90%;
+    min-height: 87%;
+    max-height: 87%;
+    min-width: 90%;
     max-width: 90%;
     margin: 0 auto;
     overflow-y: scroll;
+    
+    
     
     
     
@@ -96,8 +104,8 @@ h1{
     color: black;
     
     font-family: "pragati", sans-serif;
-    font-weight: 700;
-    margin: 0 auto;
-    padding: 5px 20px;
+    font-weight: 600;
+    margin: 5px auto;
+    padding: 5px;
 
 }

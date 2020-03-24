@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import to from 'await-to-js';
-import "./styles/settings/style.css";
+import "./styles/settings/settings.css";
 
 import Notifications from "../components/SettingsGroup/notifications.js";
 import Securiprivacy from "../components/SettingsGroup/securiprivacy.js";
@@ -109,7 +109,8 @@ const Settings = (props) => {
 
 
     return (
-        <React.Fragment>
+        
+            <div id = "settings-page">
             <aside>
                 <h1>Settings</h1>
                 <ul>
@@ -134,15 +135,15 @@ const Settings = (props) => {
                 </ul>
             </aside>
             <header></header>
-            <section>
+            <sectio>
             {componentMap[component]}
 
-            </section>
-            <section></section>
+            </sectio>
+            <sectio></sectio>
             
             <main></main>
-            
-        </React.Fragment>
+        </div>
+        
     )
 }
 

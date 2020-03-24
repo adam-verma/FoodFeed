@@ -92,13 +92,26 @@ const ChatRoom = ({location}) => {
                     
 
                 <div className="bg-dark sidebar" style = {{backgroundColor: "#1E1E1E"}}>
-                    <div className = "chat rounded-left">
+                    <div className = "chat rounded-left fixed-right">
                         <div className = "Title" align="center"><h1>Chat</h1></div>
-                        <div className="chatinner rounded-bottom border border-white" style = {{backgroundColor: "#FFAD33"}}>
+                        <div className=" overflow-auto chatinner rounded-bottom border border-white " style = {{backgroundColor: "#FAFAFA"}}>
                             <ScrollToBottom>
                                 <Inline username = {"Cartman"} message = {"HEY"}/>
                                 <Inline username = {"Kyle"} message = {"What do you want fat-ass?"}/>
                                 <Inline username = {"Cartman"} message = {"Shut-up jewboy!"}/>
+                                <Inline username = {"Kyle"} message = {"Screw you fatboy!"}/>
+                                <Inline username = {"Cartman"} message = {"HEY"}/>
+                                <Inline username = {"Kyle"} message = {"What do you want fat-ass?"}/>
+                                <Inline username = {"Cartman"} message = {"Shut-up jewboy!"}/>
+                                <Inline username = {"Kyle"} message = {"Screw you fatboy!"}/>
+                                <Inline username = {"Cartman"} message = {"HEY"}/>
+                                <Inline username = {"Kyle"} message = {"What do you want fat-ass?"}/>
+                                <Inline username = {"Cartman"} message = {"Shut-up jewboy!"}/>
+                                <Inline username = {"Cartman"} message = {"HEY"}/>
+                                <Inline username = {"Kyle"} message = {"What do you want fat-ass?"}/>
+                                <Inline username = {"Cartman"} message = {"Shut-up jewboy!"}/>
+                                <Inline username = {"Kyle"} message = {"Screw you fatboy!"}/>
+                                
                                 <Inline username = {"Kyle"} message = {"Screw you fatboy!"}/>
                                 {messages.map((result) =>(
 
@@ -110,7 +123,7 @@ const ChatRoom = ({location}) => {
                         </div>
                         <input className="form-control form-control-sm" type="text" placeholder="Say Something!" value = {message}  
                         onChange = {(event) => setMessage(event.target.value)}  onKeyPress = {event => event.key === "Enter" ? sendMessage(event.target.value) : null}></input>
-                        <button type="button" className="btn " type = "submit" >Enter</button>
+                        {/* <button type="button" className="btn " type = "submit" >Enter</button> */}
                     </div>
 
                 </div>
