@@ -12,7 +12,7 @@ const middleware = require("connect-ensure-login");
 const flash = require("connect-flash");
 const FileStore = require("session-file-store")(Session);
 const path = require("path");
-const server = require("https").createServer(app);
+const server = require("http").createServer(app);
 const io = require("socket.io").listen(server);
 const config = require("./config/media_config");
 const viewers = require("./routes/api/viewers");
@@ -26,22 +26,28 @@ const NodeMediaServer = require('./media_server.js');
 io.on("connection", (socket) => {
 
   console.log("A USER CONNECTED!");
+  socket.emit("join", "HEY")
   
 
   socket.on("disconnect", () => {
     console.log("A USER DISCONNECTED")
   })
 
-  socket.on("join", ({}, callback) => {
+  socket.emit("join", (msg, callback ) =>{
 
-    callback({msg: "Welcome!"});
+    console.log(`PRINTED HERE${msg}`);
+
+
   })
 
 
-  socket.on("sendMessage", (message, callback) =>{
-    console.log(socket.id);
+
+
+  socket.on("sendMessage", message =>{
+    
     console.log(message);
-    io.sockets.emit("sendMessage", {message: message, username: socket.id});
+    socket.broadcast.emit("chatMessage", message);
+    
     
   })
 

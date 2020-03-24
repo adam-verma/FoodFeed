@@ -21,53 +21,52 @@ const ChatRoom = ({}) => {
     const [message, setMessage] = useState("");
     const [messages, setMessages] = useState([]);
 
+    const [messagebroad, setMessagebroad] = useState("");
+    const [messagesbroad, setMessagesbroad] = useState(["bra"]);
 
 
-    const socket = io(ENDPOINT);
+    const socket = io.connect(ENDPOINT);
     // const streamRoom = queryString.parse(location.search);
+    const streamRoom = window.location.href;
 
 
-
-    // useEffect(() => {
+    useEffect(() => {
         
-    //     const socket = io(ENDPOINT);
-    //     const data = queryString.parse(location.search);
-    //     socket.on("chat message", data => {
-    //         console.log(data);
-    //     });
-
-    //     // setName(name);
-    //     // setRoom(room);
+        const socket = io(ENDPOINT);
         
-    //     socket.emit("join",{}, ({msg}) => {
-    //         alert(msg);
-    //     });
+        socket.on("join", streamRoom => {
+            console.log(streamRoom);
+        });
 
-    //     return () => {
-    //         socket.emit("disconnect");
-    //         socket.off();
-    //     }
+        // setName(name);
+        // setRoom(room);
+        
+        
 
+        // return () => {
+        //     socket.emit("disconnect");
+        //     socket.off();
+        // }
 
-    // },[streamRoom]);
-
-    // useEffect(() =>{
-    //     socket.on("sendMessage", (message) =>{
-
-    //         setMessage(message);
-    //     })
+    },[streamRoom]);
 
 
+    
+    socket.on("chatMessage", (message) =>{
 
+        
+            setMessagesbroad(oldValue =>
+                 [...oldValue, message]
+            )
+              console.log(messages);
+    })
 
-    // }, [message]);
+    
 
 
     const sendMessage = (event) => {
         
         if(message) {
-
-
 
             socket.emit("sendMessage", message)
             setMessage("")
@@ -75,7 +74,6 @@ const ChatRoom = ({}) => {
                  [...oldValue, message]
             )
               console.log(messages); 
-        
         }
 
         console.log(message);
@@ -89,11 +87,6 @@ const ChatRoom = ({}) => {
         element.scrollTop = element.scrollHeight;
 
     }, [message]);
-
-
-
-
-
 
     return ( 
         <React.Fragment>
@@ -124,10 +117,15 @@ const ChatRoom = ({}) => {
                                 <Inline username = {"Kyle"} message = {"Screw you fatboy!"}/>
                                 
                                 <Inline username = {"Kyle"} message = {"Screw you fatboy!"}/>
-                                {messages.map((result) =>(
+                                {messages.map((result, i) =>(
 
-                                    <Inline username = {"Stan"} message ={result} />
+                                    <Inline username = {"Stan"} message ={result}  key = {i}/>
                                 ))}
+
+                                {messagesbroad.map((result, i) =>(
+                                    <Inline username = {"KENNY"} message ={result}  key = {i}/>
+                                ))}
+
                             </ScrollToBottom>
 
 
