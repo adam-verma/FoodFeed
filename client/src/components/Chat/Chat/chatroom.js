@@ -3,7 +3,8 @@ import queryString from "query-string";
 import io from "socket.io-client";
 import ScrollToBottom from "react-scroll-to-bottom";
 import "./style.css";
-import Inline from "./inline.js"
+import Inline from "./inline.js";
+import "../../../pages/styles/VideoPlayer/videoplayer.css";
 
 let ENDPOINT;
 
@@ -13,7 +14,7 @@ if (process.env.NODE_ENV !== 'production') {
 };
 
 
-const ChatRoom = ({location}) => {
+const ChatRoom = ({}) => {
     const [name, setName] = useState("");
     const [room, setRoom] = useState("");
     
@@ -23,7 +24,10 @@ const ChatRoom = ({location}) => {
 
 
     const socket = io(ENDPOINT);
-    const streamRoom = queryString.parse(location.search);
+    // const streamRoom = queryString.parse(location.search);
+
+
+
     // useEffect(() => {
         
     //     const socket = io(ENDPOINT);
@@ -75,10 +79,17 @@ const ChatRoom = ({location}) => {
         }
 
         console.log(message);
-
-
-        
     }
+    
+
+
+    // Auto-scrolling the div down on message
+    useEffect(() => {
+        const element = document.getElementById("chatIner");
+        element.scrollTop = element.scrollHeight;
+
+    }, [message]);
+
 
 
 
@@ -91,10 +102,10 @@ const ChatRoom = ({location}) => {
                     
                     
 
-                <div className="bg-dark sidebar" style = {{backgroundColor: "#1E1E1E"}}>
+                <div className="bg-dark sideb" style = {{backgroundColor: "#1E1E1E"}}>
                     <div className = "chat rounded-left fixed-right">
                         <div className = "Title" align="center"><h1>Chat</h1></div>
-                        <div className=" overflow-auto chatinner rounded-bottom border border-white " style = {{backgroundColor: "#FAFAFA"}}>
+                        <div className=" chatinner rounded-bottom border border-white " id = "chatIner" style = {{backgroundColor: "#FAFAFA"}}>
                             <ScrollToBottom>
                                 <Inline username = {"Cartman"} message = {"HEY"}/>
                                 <Inline username = {"Kyle"} message = {"What do you want fat-ass?"}/>
