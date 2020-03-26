@@ -5,7 +5,6 @@ import Identity from "../components/ProfileGroup/identity.js";
 import Modal from "../components/ModalGroup/modal.js";
 
 
-import "bootstrap/dist/css/bootstrap.min.css";
 import cover from "../media/photo/coverPhoto.jpg";
 import portrait from "../media/photo/profilePhoto.png"
 import girl1 from "../media/photo/girl1.png";
@@ -15,11 +14,11 @@ import suda from "../media/photo/suda.png";
 import fam1 from "../media/photo/fam1.jpg";
 
 
-const Dashboard = () => {
+const StreamerDashboard = () => {
     
 
-
-
+    
+    
 
 
 
@@ -55,7 +54,7 @@ const Dashboard = () => {
                 name = {"Dave Chang"}
                 aboutMe = {"David Chang is an American restaurateur, author, and television personality. He is the founder of the Momofuku restaurant group, which includes Momofuku Noodle Bar, Momofuku Ssäm Bar and Milk Bar. Chang has received numerous nominations and awards, including two Michelin stars for Ko, 2007 James Beard Rising Star of the Year, 2008 James Beard Best Chef: New York City for Ssäm Bar, and 2009 James Beard Best New Restaurant for Ko. In 2012, Chang was nominated for the James Beard Outstanding Chef award."}
                 location = {"Houston, Texas"}
-                role = {"Chef|Entrepenour|Business Mogal"}
+                role = {"Chef|Entrepreneur|Business Mogul"}
 
                 cardCheckout = {() => modalToggle()}
 
@@ -141,9 +140,6 @@ const Dashboard = () => {
                     </>
                 
                 }
-
-
-            
         />
 
 
@@ -158,4 +154,4 @@ const Dashboard = () => {
 }
 
 
-export default Dashboard;
+export default StreamerDashboard;

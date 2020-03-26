@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom';
 // import './LiveStreams.scss';
 import config from '../../config/media_config';
  
- 
 export default class Navbar extends React.Component {
  
     constructor(props) {
@@ -41,7 +40,7 @@ export default class Navbar extends React.Component {
             });
         });
     }
- 
+
     render() {
         let streams = this.state.live_streams.map((stream, index) => {
             return (

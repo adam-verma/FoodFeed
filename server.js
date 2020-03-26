@@ -2,6 +2,7 @@
 // Require dependencies
 const express= require("express");
 const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
@@ -15,14 +16,18 @@ const path = require("path");
 const server = require("https").createServer(app);
 const io = require("socket.io").listen(server);
 const config = require("./config/media_config");
-const viewers = require("./routes/api/viewers");
-const viewer = require("./routes/api/Viewer");
-const User = require("./routes/api/user");
+const UserRoutes = require("./routes/api/user");
+const jwt = require('jsonwebtoken');
+const db = require('./models');
 const Stream = require("./routes/api/streams");
 const passport = require("./config/passport");
 const apiRoutes = require("./routes/api/recipes");
 const NodeMediaServer = require('./media_server.js');
 const thumbnail_generator = require('./scripts/cron_thumbnails');
+
+require("dotenv").config({
+  path: path.join(__dirname, "./.env")
+ });
 
 io.on("connection", (socket) => {
 
@@ -76,13 +81,13 @@ app.use(
 
 app.use(bodyParser.json());
 
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/foodfeed";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://mongo/foodfeed";
 // Connect to Mongo DB
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true }, err => { if(err) { console.log(err); }}).
 then(() => console.log("MONGO DATABASE CONNECTED"));
 
 app.use(flash());
-
+app.use(cookieParser());
 // Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
@@ -90,15 +95,33 @@ app.use(passport.session());
 require("./config/passport");
 
 // Register app routes
-app.use("/api/viewers", viewers);
-
-app.use("/api/streamers", viewer);
 
 // app.use("/streams", Stream);
 app.use('/streams', require('./routes/api/streams'));
 app.use('/settings', require('./routes/api/setting'));
-app.use("/user", User);
+app.use("/user", UserRoutes);
 app.use('/api',apiRoutes )
+
+const withAuth = app.use(async (req, res, done) => {
+  if (req.headers["x-access-token"]) {
+   const accessToken = req.headers["x-access-token"];
+   const { userId, exp } = await jwt.verify(accessToken, process.env.JWT_SECRET);
+   // Check if token has expired
+   if (exp < Date.now().valueOf() / 1000) {
+    return res.status(401).json({
+     error: "JWT token has expired, please login to obtain a new one"
+    });
+   }
+   res.locals.loggedInUser = await db.User.findById(userId);
+   done();
+  } else {
+   done();
+  }
+});
+
+app.get("/checkToken", withAuth, function(req, res) {
+  res.send('Confirmed');
+})
 
 app.use('/login', require('./routes/login'));
 app.use('/signup', require('./routes/signup'));

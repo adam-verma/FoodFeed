@@ -18,6 +18,12 @@ services:
       - '3002:3002'
     depends_on:
       - mongo
+    volumes:
+      - .:/home/node/app
+      - node_modules:/home/node/app/node_modules
+    networks:
+      - app-network
+    command: ./wait-for.sh db:27017 -- /home/node/app/node_modules/.bin/nodemon server.js
   ffmpeg:
     image: adilm7177/ffmpeg
   mongo:
@@ -26,7 +32,9 @@ services:
     ports:
       - '27017:27017'
     volumes:
-    - ./data:/data/db
+      - data:/data/db
+    networks:
+      - app-network
   registry:
     image: registry:2
     ports:
@@ -34,4 +42,11 @@ services:
     environment:
       REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY: /data
     volumes:
-      - ./data:/data
+      - data:/data
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  data:
+  node_modules:  

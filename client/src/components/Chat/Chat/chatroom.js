@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useReducer } from "react";
 import queryString from "query-string";
 import io from "socket.io-client";
-import ScrollToBottom from "react-scroll-to-bottom";
 import "./style.css";
 import Inline from "./inline.js"
 
@@ -95,7 +94,6 @@ const ChatRoom = ({location}) => {
                     <div className = "chat rounded-left fixed-right">
                         <div className = "Title" align="center"><h1>Chat</h1></div>
                         <div className=" overflow-auto chatinner rounded-bottom border border-white " style = {{backgroundColor: "#FAFAFA"}}>
-                            <ScrollToBottom>
                                 <Inline username = {"Cartman"} message = {"HEY"}/>
                                 <Inline username = {"Kyle"} message = {"What do you want fat-ass?"}/>
                                 <Inline username = {"Cartman"} message = {"Shut-up jewboy!"}/>
@@ -117,8 +115,6 @@ const ChatRoom = ({location}) => {
 
                                     <Inline username = {"Stan"} message ={result} />
                                 ))}
-                            </ScrollToBottom>
-
 
                         </div>
                         <input className="form-control form-control-sm" type="text" placeholder="Say Something!" value = {message}  

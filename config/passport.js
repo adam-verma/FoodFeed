@@ -2,8 +2,8 @@ const passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy,
     shortid = require('shortid'),
     db = require('../models');
+    jwt = require('jsonwebtoken');
 
- 
 passport.serializeUser( (user, cb) => {
     cb(null, user);
 });
@@ -22,7 +22,7 @@ passport.use('localRegister', new LocalStrategy({
         db.User.findOne({$or: [{email: email}, {username: req.body.username}]},  (err, user) => {
             console.log("ffff" + user)
             if (err)
-                return done(err);
+                return done(err); 
             if (user) {
                 if (user.email === email) {
                     req.flash('email', 'Email is already taken');
@@ -30,13 +30,16 @@ passport.use('localRegister', new LocalStrategy({
                 if (user.username === req.body.username) {
                     req.flash('username', 'Username is already taken');
                 }
- 
                 return done(null, false);
             } else {
                 let user = new db.User();
                 console.log("mmm"+user)
                 user.email = email;
                 user.password = user.generateHash(password);
+                user.role = req.body.role ? req.body.role: "viewer"; 
+                user.accessToken = jwt.sign({userId: user._id}, process.env.JWT_SECRET, {
+                    expiresIn: "1d"
+                });
                 user.username = req.body.username;
                 user.stream_key = shortid.generate();
                 user.save( (err) => {
@@ -52,23 +55,21 @@ passport.use('localRegister', new LocalStrategy({
 passport.use('localLogin', new LocalStrategy({
         usernameField: 'email',
         passwordField: 'password',
-        passReqToCallback: true
-    },
-    (req, email, password, done) => {
- 
-        db.User.findOne({'email': email}, (err, user) => {
-            if (err)
-                return done(err);
- 
-            if (!user)
-                return done(null, false, req.flash('email', 'Email doesn\'t exist.'));
- 
-            if (!user.validPassword(password))
-                return done(null, false, req.flash('password', 'Oops! Wrong password.'));
- 
-            return done(null, user);
-        });
+        passReqToCallback: true},
+    async (req, email, password, done) => {
+        try {
+        const user = await db.User.findOne({ email });
+        if (!user) return done(null, false, req.flash('email', 'Email doesn\'t exist.'));
+        if (!user.validPassword(password)) return done(null, false, req.flash('password', 'Oops! Wrong password.'));
+        const accessToken = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
+            expiresIn: "1d"
+           });
+        console.log(user, accessToken);
+        await db.User.findByIdAndUpdate(user._id, {accessToken})
+        return done(null, user, accessToken)
+        } catch (error) {
+        done(error);
+       }
     }));
- 
- 
+    
 module.exports = passport;

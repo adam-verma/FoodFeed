@@ -9,6 +9,12 @@ let  UserSchema = new Schema({
     email : String,
     password: String,
     stream_key : String,
+    role: {
+        type: String,
+        default: 'viewer',
+        enum: ["viewer", "streamer", "admin"]
+       },
+    accessToken: String
 });
  
 UserSchema.methods.generateHash = (password) => {
