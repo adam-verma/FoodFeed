@@ -28,7 +28,7 @@ export default class Navbar extends React.Component {
     }
  
     getStreamsInfo(live_streams) {
-        axios.get('/streams/info', {
+        axios.get('/api/streams/info', {
             params: {
                 streams: live_streams
             }

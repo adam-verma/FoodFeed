@@ -1,7 +1,7 @@
 const axios = require("axios");
 const router = require("express").Router();
 
-router.get("/recipes", (req, res) => {
+router.get("/", (req, res) => {
   axios
     .get("http://www.recipepuppy.com/api/", { params: req.query })
     .then(({ data: { results } }) => res.json(results))

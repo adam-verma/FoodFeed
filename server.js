@@ -21,7 +21,6 @@ const jwt = require('jsonwebtoken');
 const db = require('./models');
 const Stream = require("./routes/api/streams");
 const passport = require("./config/passport");
-const apiRoutes = require("./routes/api/recipes");
 const NodeMediaServer = require('./media_server.js');
 const thumbnail_generator = require('./scripts/cron_thumbnails');
 
@@ -33,7 +32,6 @@ io.on("connection", (socket) => {
 
   console.log("A USER CONNECTED!");
   
-
   socket.on("disconnect", () => {
     console.log("A USER DISCONNECTED")
   })
@@ -70,7 +68,6 @@ if (process.env.NODE_ENV === "production") {
 }
 // Add routes, both API and view
 app.use(routes);
-// app.use(routes);
 
 // Bodyparser middleware
 app.use(
@@ -97,10 +94,7 @@ require("./config/passport");
 // Register app routes
 
 // app.use("/streams", Stream);
-app.use('/streams', require('./routes/api/streams'));
-app.use('/settings', require('./routes/api/setting'));
 app.use("/user", UserRoutes);
-app.use('/api',apiRoutes )
 
 const withAuth = app.use(async (req, res, done) => {
   if (req.headers["x-access-token"]) {

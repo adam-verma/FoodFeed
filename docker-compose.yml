@@ -12,6 +12,7 @@ services:
   api:
     build: 
       context: .
+      dockerfile: Dockerfile
     restart: always
     ports:
       - '3001:3001'
@@ -19,7 +20,7 @@ services:
     depends_on:
       - mongo
     volumes:
-      - .:/home/battl/FoodFeed
+      - .:/home/adam/FoodFeed
       - node_modules:/home/node/app/node_modules
     networks:
       - app-network
@@ -64,10 +65,10 @@ services:
     volumes:
       - certbot-etc:/etc/letsencrypt
       - certbot-var:/var/lib/letsencrypt
-      - web-root:/var/www/html
+      - web-root:/var/www/api
     depends_on:
       - webserver
-    command: certonly --webroot --webroot-path=/var/www/html --email vermaadam@gmail.com --agree-tos --no-eff-email --staging -d api.foodfeedllc.com -d www.api.foodfeedllc.com   
+    command: certonly --webroot --webroot-path=/var/www/api --email vermaadam@gmail.com --agree-tos --no-eff-email --staging -d api.foodfeedllc.com -d www.api.foodfeedllc.com   
 networks:
   app-network:
     driver: bridge
